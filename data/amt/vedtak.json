@@ -1,0 +1,32 @@
+{
+    "deltaker": {
+        "fornavn": "Navn",
+        "mellomnavn": null,
+        "etternavn": "Navnersen",
+        "innhold": [
+            "Arbeidspraksis",
+            "Hjelp til å tilpasse arbeidsoppgaver og arbeidsplassen",
+            "Karriereveiledning",
+            "Kartlegge hvordan helsen din påvirker muligheten din til å jobbe",
+            "Oppfølging på arbeidsplassen"
+        ],
+        "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen",
+        "deltakelsesmengde": {
+            "deltakelsesprosent": 50,
+            "dagerPerUke": null
+        }
+    },
+    "deltakerliste": {
+        "navn": "Arbeidsforberedende trening hos Muligheter AS",
+        "tiltakstype": "Arbeidsforberedende trening",
+        "ledetekst": "Arbeidsforberedende trening er et tilbud for deg som først ønsker å jobbe i et tilrettelagt arbeidsmiljø. Du får veiledning og støtte av en veileder. Sammen kartlegger dere hvordan din kompetanse, interesser og ferdigheter påvirker muligheten din til å jobbe.",
+        "arrangor": {
+            "navn": "Muligheter AS"
+        },
+        "forskriftskapittel": 13
+    },
+    "navVeileder": {
+        "navn": "Veileder Veilederesen",
+        "enhet": "NAV Fyrstikkaleen"
+    }
+}

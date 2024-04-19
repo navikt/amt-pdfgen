@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Vedtak om tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Vedtak"/>
+
+    <style>
+        @page {
+            margin: 1cm;
+        }
+        * {
+            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
+             box-sizing: border-box;
+        }
+        section {
+            page-break-inside: avoid;
+        }
+        header {
+            display: block;
+        }
+        .logo {
+            float: right;
+            height: 6rem;
+        }
+        .personalia {
+            float: left;
+            padding-top: 2rem;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            clear: both;
+        }
+    </style>
+
+    <title>Vedtak om tiltaksdeltakelse</title>
+
+</head>
+<body>
+    <header>
+        <div class="personalia">
+            <p>{{deltaker.fornavn}} {{#if deltaker.mellomnavn}} {{deltaker.mellomnavn}} {{/if}} {{deltaker.etternavn}}</p>
+            <p>Adresselinje 1</p>
+            <p>Adresselinje 2</p>
+            <p>1234 Oslo</p>
+        </div>
+        <img class="logo" alt="NAV logo" src="{{ image "Navlogo.png" }}"/>
+    </header>
+    <main>
+        <section>
+            <h1>Vedtak om deltakelse på {{deltakerliste.navn}}</h1>
+            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.</p>
+        <section>
+
+            </section>
+            <h2>Hva er innholdet?</h2>
+            <p>{{deltakerliste.ledetekst}}</p>
+
+            {{#if deltaker.innhold.length}}
+            <ul>
+                {{#each deltaker.innhold}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+        </section>
+
+        <section>
+            <h2>Bakgrunnsinfo</h2>
+            <p>{{deltaker.bakgrunnsinformasjon}}</p> 
+        </section>
+
+        {{#if deltaker.deltakelsesmengde}}
+            <section>
+                <h2>Deltakelsesmengde</h2>
+                <p>{{deltaker.deltakelsesmengde.deltakelsesprosent}} %</p>
+                {{#if deltaker.deltakelsesmengde.dagerPerUke}}
+                    <p>{{deltaker.deltakelsesmengde.dagerPerUke}}</p>
+                {{/if}}
+            </section>
+        {{/if}}
+
+        <section>
+            <h2>Hva er dette?</h2>
+            <p>Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak kapittel {{deltakerliste.forskriftskapittel}}.</p>
+        </section>
+
+        <section>
+            <h2>Du har rett til å klage</h2>
+            <p>Du kan klage hvis du ikke ønsker å delta, er uenig i endringer på deltakelsen eller du ønsker et annet arbeidsmarkedstiltak. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
+        </section>
+
+        <section>
+            <h2>Hva deles med arrangøren?</h2>
+            <p>NAV samarbeider med Unikum Inkludering AS. Arrangøren behandler opplysninger på vegne av NAV.</p>
+            <ul>
+                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
+                <li>Påmeldingen: Innholdet og bakgrunnsinformasjon</li>
+                <li>Navn og fødselsnummer</li>
+                <li>Telefonnummer og e-postadresse</li>
+                <li>Adresse</li>
+            </ul>
+        </section>
+
+        <div style="padding-top: 3rem">
+            <p>
+                Med vennlig hilsen<br /><br />
+                {{navVeileder.navn}}<br />
+                {{navVeileder.enhet}}
+            </p>
+        </div>
+    </main>
+</body>
+</html>
