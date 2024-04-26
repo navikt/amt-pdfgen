@@ -44,9 +44,9 @@
     <header>
         <div class="personalia">
             <p>{{deltaker.fornavn}} {{#if deltaker.mellomnavn}} {{deltaker.mellomnavn}} {{/if}} {{deltaker.etternavn}}</p>
-            <p>Adresselinje 1</p>
-            <p>Adresselinje 2</p>
-            <p>1234 Oslo</p>
+            {{#each deltaker.adresselinjer}}
+            <p>{{this}}</p>
+            {{/each}}
         </div>
         <img class="logo" alt="NAV logo" src="{{ image "Navlogo.png" }}"/>
     </header>
