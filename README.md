@@ -21,8 +21,8 @@ Siden vi kjører med `DEV_MODE=true` på lokalt skal endringer i data eller temp
 ```shell
 curl -X POST \
   -H "Content-Type: application/json" \
-  --data @data/amt/vedtak.json \
-  http://0.0.0.0:8080/api/v1/genpdf/amt/vedtak \
-  --output vedtak.pdf
+  --data @data/amt/hovedvedtak.json \
+  http://0.0.0.0:8080/api/v1/genpdf/amt/hovedvedtak \
+  --output hovedvedtak.pdf
 ```
 
