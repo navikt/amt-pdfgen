@@ -52,38 +52,34 @@
     </header>
     <main>
         <section>
-            <h1>Vedtak om deltakelse på {{deltakerliste.navn}}</h1>
-            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.</p>
-        <section>
-
-            </section>
-            <h2>Hva er innholdet?</h2>
-            <p>{{deltakerliste.ledetekst}}</p>
-
-            {{#if deltaker.innhold.length}}
-            <ul>
-                {{#each deltaker.innhold}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
+            <h1>Endring i: {{deltakerliste.navn}}</h1>
+            <h2>{{endring.type}}</h2>
+            {{#if endring.aarsak}}
+                <p><strong>Årsak:</strong> {{endring.aarsak}}</p>
             {{/if}}
-
-        </section>
-
-        <section>
-            <h2>Bakgrunnsinfo</h2>
-            <p>{{deltaker.bakgrunnsinformasjon}}</p> 
-        </section>
-
-        {{#if deltaker.deltakelsesmengde}}
-            <section>
-                <h2>Deltakelsesmengde</h2>
+            {{#if endring.startdato}}
+                <p><strong>Startdato:</strong> {{iso_to_nor_date endring.startdato}}</p>
+            {{/if}}
+            {{#if endring.sluttdato}}
+                <p><strong>Sluttdato:</strong> {{iso_to_nor_date endring.sluttdato}}</p>
+            {{/if}}
+            {{#if endring.deltakelsesmengde}}
                 <p>{{deltaker.deltakelsesmengde.deltakelsesprosent}} %</p>
                 {{#if deltaker.deltakelsesmengde.dagerPerUke}}
                     <p>{{deltaker.deltakelsesmengde.dagerPerUke}}</p>
                 {{/if}}
-            </section>
-        {{/if}}
+            {{/if}}
+            {{#if endring.bakgrunnsinformasjon}}
+                <p>{{endring.bakgrunnsinformasjon}}</p>
+            {{/if}}
+            {{#if endring.innhold.length}}
+            <ul>
+                {{#each endring.innhold}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </section>
 
         <section>
             <h2>Hva er dette?</h2>
