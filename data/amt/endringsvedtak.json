@@ -15,12 +15,20 @@
         },
         "forskriftskapittel": 13
     },
-    "endring": {
-        "type": "Forlengelse",
-        "startdato": "2024-05-01",
-        "sluttdato": "2024-08-01"
-
-    },
+    "endringer": [
+        {
+            "type": "Deltakelsesmengde",
+            "deltakelsesmengde": {
+                "deltakelsesprosent": 50,
+                "dagerPerUke": 2
+            }
+        },
+        {
+            "type": "Forlengelse",
+            "startdato": "2024-05-01",
+            "sluttdato": "2024-08-01"
+        }
+    ],
     "navVeileder": {
         "navn": "Veileder Veilederesen",
         "enhet": "NAV Fyrstikkaleen"

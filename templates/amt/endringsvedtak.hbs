@@ -53,32 +53,34 @@
     <main>
         <section>
             <h1>Endring i: {{deltakerliste.navn}}</h1>
-            <h2>{{endring.type}}</h2>
-            {{#if endring.aarsak}}
-                <p><strong>Årsak:</strong> {{endring.aarsak}}</p>
+            {{#each endringer}}
+            <h2>{{this.type}}</h2>
+            {{#if this.aarsak}}
+                <p><strong>Årsak:</strong> {{this.aarsak}}</p>
             {{/if}}
-            {{#if endring.startdato}}
-                <p><strong>Startdato:</strong> {{iso_to_nor_date endring.startdato}}</p>
+            {{#if this.startdato}}
+                <p><strong>Startdato:</strong> {{iso_to_nor_date this.startdato}}</p>
             {{/if}}
-            {{#if endring.sluttdato}}
-                <p><strong>Sluttdato:</strong> {{iso_to_nor_date endring.sluttdato}}</p>
+            {{#if this.sluttdato}}
+                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
             {{/if}}
-            {{#if endring.deltakelsesmengde}}
-                <p>{{deltaker.deltakelsesmengde.deltakelsesprosent}} %</p>
-                {{#if deltaker.deltakelsesmengde.dagerPerUke}}
-                    <p>{{deltaker.deltakelsesmengde.dagerPerUke}}</p>
+            {{#if this.deltakelsesmengde}}
+                <p>{{this.deltakelsesmengde.deltakelsesprosent}} %</p>
+                {{#if this.deltakelsesmengde.dagerPerUke}}
+                    <p>{{this.deltakelsesmengde.dagerPerUke}}</p>
                 {{/if}}
             {{/if}}
-            {{#if endring.bakgrunnsinformasjon}}
-                <p>{{endring.bakgrunnsinformasjon}}</p>
+            {{#if this.bakgrunnsinformasjon}}
+                <p>{{this.bakgrunnsinformasjon}}</p>
             {{/if}}
-            {{#if endring.innhold.length}}
+            {{#if this.innhold.length}}
             <ul>
-                {{#each endring.innhold}}
+                {{#each this.innhold}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
             {{/if}}
+            {{/each}}
         </section>
 
         <section>
