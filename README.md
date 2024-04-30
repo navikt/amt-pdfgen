@@ -11,7 +11,7 @@ Kjør lokalt med:
 docker-compose up
 ```
 
-Gå til http://localhost:8080/api/v1/genpdf/amt/vedtak for å se et eksempel på en pdf. 
+Gå til http://localhost:8080/api/v1/genpdf/amt/hovedvedtak for å se et eksempel på en pdf. 
 
 Hvert template i `templates/amt/*` skal ha en json fil med testdata i `data/amt/`
 
