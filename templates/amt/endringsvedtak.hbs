@@ -54,28 +54,28 @@
         <section>
             <h1>Endring i: {{deltakerliste.navn}}</h1>
             {{#each endringer}}
-            <h2>{{this.type}}</h2>
-            {{#if this.aarsak}}
-                <p><strong>Årsak:</strong> {{this.aarsak}}</p>
+            <h2>{{this.navn}}</h2>
+            {{#if this.hendelseType.aarsak}}
+                <p><strong>Årsak:</strong> {{this.hendelseType.aarsak}}</p>
             {{/if}}
-            {{#if this.startdato}}
-                <p><strong>Startdato:</strong> {{iso_to_nor_date this.startdato}}</p>
+            {{#if this.hendelseType.startdato}}
+                <p><strong>Startdato:</strong> {{iso_to_nor_date this.hendelseType.startdato}}</p>
             {{/if}}
-            {{#if this.sluttdato}}
-                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
+            {{#if this.hendelseType.sluttdato}}
+                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.hendelseType.sluttdato}}</p>
             {{/if}}
-            {{#if this.deltakelsesmengde}}
-                <p>{{this.deltakelsesmengde.deltakelsesprosent}} %</p>
-                {{#if this.deltakelsesmengde.dagerPerUke}}
-                    <p>{{this.deltakelsesmengde.dagerPerUke}}</p>
+            {{#if this.hendelseType.deltakelsesprosent}}
+                <p>{{this.hendelseType.deltakelsesprosent}} %</p>
+                {{#if this.hendelseType.dagerPerUke}}
+                    <p>{{this.hendelseType.dagerPerUke}}</p>
                 {{/if}}
             {{/if}}
-            {{#if this.bakgrunnsinformasjon}}
-                <p>{{this.bakgrunnsinformasjon}}</p>
+            {{#if this.hendelseType.bakgrunnsinformasjon}}
+                <p>{{this.hendelseType.bakgrunnsinformasjon}}</p>
             {{/if}}
-            {{#if this.innhold.length}}
+            {{#if this.hendelseType.innhold.length}}
             <ul>
-                {{#each this.innhold}}
+                {{#each this.hendelseType.innhold}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
