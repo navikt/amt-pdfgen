@@ -1,5 +1,8 @@
 services:
   amt-pdfgen:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: amt-pdfgen:latest
     ports:
       - "8080:8080"

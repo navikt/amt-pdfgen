@@ -11,18 +11,7 @@ Kjør lokalt med:
 docker-compose up
 ```
 
-Gå til http://localhost:8080/api/v1/genpdf/amt/hovedvedtak for å se et eksempel på en pdf. 
+Gå til http://localhost:8080/api/v1/genpdf/amt/hovedvedtak for å se et eksempel på en pdf. Endringer i templates eller data blir visende i pdfen etter en refresh.
 
 Hvert template i `templates/amt/*` skal ha en json fil med testdata i `data/amt/`
-
-Siden vi kjører med `DEV_MODE=true` på lokalt skal endringer i data eller templates reflekeres etter en refresh i nettleseren, men pga en bug i `pdfgen` så virker ikke det på `GET`-requests akkurat nå. Så noen workarounder er å restarte appen etter hver endring, eller gjøre et `POST`-request og lagre pdfen lokalt med noe som f.eks:
-
-
-```shell
-curl -X POST \
-  -H "Content-Type: application/json" \
-  --data @data/amt/hovedvedtak.json \
-  http://0.0.0.0:8080/api/v1/genpdf/amt/hovedvedtak \
-  --output hovedvedtak.pdf
-```
 
