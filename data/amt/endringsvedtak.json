@@ -17,16 +17,19 @@
     },
     "endringer": [
         {
-            "type": "Deltakelsesmengde",
-            "deltakelsesmengde": {
-                "deltakelsesprosent": 50,
-                "dagerPerUke": 2
+            "navn": "Deltakelsesmengde",
+            "hendelseType": {
+                "type": "EndreDeltakelsesmengde",
+                "deltakelsesprosent": 99.0,
+                "dagerPerUke": 5.0
             }
         },
         {
-            "type": "Forlengelse",
-            "startdato": "2024-05-01",
-            "sluttdato": "2024-08-01"
+            "navn": "Forlengelse",
+            "hendelseType": {
+                "type": "ForlengDeltakelse",
+                "sluttdato": "2024-07-03"
+            }
         }
     ],
     "navVeileder": {
