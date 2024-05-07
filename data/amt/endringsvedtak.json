@@ -1,39 +1,38 @@
 {
-    "deltaker": {
-        "fornavn": "Navn",
-        "mellomnavn": null,
-        "etternavn": "Navnersen",
-        "adresselinjer": [
-            "17B Karl Johans Gate",
-            "0123 Oslo"
-        ]
+  "deltaker": {
+    "fornavn": "Navn",
+    "mellomnavn": null,
+    "etternavn": "Navnersen",
+    "adresselinjer": [
+      "17B Karl Johans Gate",
+      "0123 Oslo"
+    ]
+  },
+  "deltakerliste": {
+    "navn": "Arbeidsforberedende trening hos Muligheter AS",
+    "arrangor": {
+      "navn": "Muligheter AS"
     },
-    "deltakerliste": {
-        "navn": "Arbeidsforberedende trening hos Muligheter AS",
-        "arrangor": {
-            "navn": "Muligheter AS"
-        },
-        "forskriftskapittel": 13
+    "forskriftskapittel": 13
+  },
+  "endringer": [
+    {
+      "type": "Deltakelsesmengde",
+      "deltakelsesprosent": 99.0,
+      "dagerPerUke": 5.0
     },
-    "endringer": [
-        {
-            "navn": "Deltakelsesmengde",
-            "hendelseType": {
-                "type": "EndreDeltakelsesmengde",
-                "deltakelsesprosent": 99.0,
-                "dagerPerUke": 5.0
-            }
-        },
-        {
-            "navn": "Forlengelse",
-            "hendelseType": {
-                "type": "ForlengDeltakelse",
-                "sluttdato": "2024-07-03"
-            }
-        }
-    ],
-    "navVeileder": {
-        "navn": "Veileder Veilederesen",
-        "enhet": "NAV Fyrstikkaleen"
+    {
+      "type": "Forlengelse",
+      "sluttdato": "2024-07-03"
+    },
+    {
+      "type": "Avslutt deltakelse",
+      "aarsak": "fått jobb",
+      "sluttdato": "2024-05-28"
     }
+  ],
+  "navVeileder": {
+    "navn": "Veileder Veilederesen",
+    "enhet": "NAV Fyrstikkaleen"
+  }
 }
