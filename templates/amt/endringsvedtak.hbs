@@ -54,28 +54,28 @@
         <section>
             <h1>Endring i: {{deltakerliste.navn}}</h1>
             {{#each endringer}}
-            <h2>{{this.navn}}</h2>
-            {{#if this.hendelseType.aarsak}}
-                <p><strong>Årsak:</strong> {{this.hendelseType.aarsak}}</p>
+            <h2>{{this.type}}</h2>
+            {{#if this.aarsak}}
+                <p><strong>Årsak:</strong> {{this.aarsak}}</p>
             {{/if}}
-            {{#if this.hendelseType.startdato}}
-                <p><strong>Startdato:</strong> {{iso_to_nor_date this.hendelseType.startdato}}</p>
+            {{#if this.startdato}}
+                <p><strong>Startdato:</strong> {{iso_to_nor_date this.startdato}}</p>
             {{/if}}
-            {{#if this.hendelseType.sluttdato}}
-                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.hendelseType.sluttdato}}</p>
+            {{#if this.sluttdato}}
+                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
             {{/if}}
-            {{#if this.hendelseType.deltakelsesprosent}}
-                <p>{{this.hendelseType.deltakelsesprosent}} %</p>
-                {{#if this.hendelseType.dagerPerUke}}
-                    <p>{{this.hendelseType.dagerPerUke}}</p>
+            {{#if this.deltakelsesprosent}}
+                <p>{{this.deltakelsesprosent}} %</p>
+                {{#if this.dagerPerUke}}
+                    <p>{{this.dagerPerUke}}</p>
                 {{/if}}
             {{/if}}
-            {{#if this.hendelseType.bakgrunnsinformasjon}}
-                <p>{{this.hendelseType.bakgrunnsinformasjon}}</p>
+            {{#if this.bakgrunnsinformasjon}}
+                <p>{{this.bakgrunnsinformasjon}}</p>
             {{/if}}
-            {{#if this.hendelseType.innhold.length}}
+            {{#if this.innhold.length}}
             <ul>
-                {{#each this.hendelseType.innhold}}
+                {{#each this.innhold}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
