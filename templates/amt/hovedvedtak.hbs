@@ -21,9 +21,9 @@
         <section>
             <h1>{{deltakerliste.navn}}</h1>
             <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}. Når arrangøren har en ledig plass så vil de ta kontakt med deg for å avklare oppstart.</p>
-        <section>
+        </section>
 
-            </section>
+        <section>
             <h2>Hva er innholdet?</h2>
             <p>{{deltakerliste.ledetekst}}</p>
 
@@ -34,7 +34,6 @@
                 {{/each}}
             </ul>
             {{/if}}
-
         </section>
 
         <section>
@@ -52,15 +51,9 @@
             </section>
         {{/if}}
 
-        <section>
-            <h2>Hva er dette?</h2>
-            <p>Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak kapittel {{deltakerliste.forskriftskapittel}}.</p>
-        </section>
+        {{> amt/hvaerdette}}
 
-        <section>
-            <h2>Du har rett til å klage</h2>
-            <p>Du kan klage hvis du ikke ønsker å delta, er uenig i endringer på deltakelsen eller du ønsker et annet arbeidsmarkedstiltak. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
-        </section>
+        {{> amt/klage}}
 
         <section>
             <h2>Hva deles med arrangøren?</h2>
@@ -76,10 +69,7 @@
             </ul>
         </section>
 
-        <section>
-            <h2>Har du spørsmål?</h2>
-            <p>På <a href="https://www.nav.no/arbeid/dialog">nav.no/arbeid/dialog</a> kan du ha dialog med veilederen din. Du kan ringe oss på telefon 55 55 33 33, hverdager 09.00-15.00.</p>
-        </section>
+        {{> amt/sporsmal}}
 
         {{> amt/avsender}}
     </main>

@@ -19,28 +19,30 @@
     {{> amt/header}}
     <main>
         <section>
-            <h1>Endring i: {{deltakerliste.navn}}</h1>
+            <h1>Endring: {{deltakerliste.navn}}</h1>
+            <p>Du ble meldt på arbeidsmarkedstiltaket {{deltakerliste.navn}} {{iso_to_nor_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Endringen er delt med arrangør.</p>
             {{#each endringer}}
-            <h2>{{this.type}}</h2>
+            <h2>Ny endring: {{this.type}}</h2>
             {{#if this.aarsak}}
                 <p><strong>Årsak:</strong> {{this.aarsak}}</p>
             {{/if}}
             {{#if this.startdato}}
-                <p><strong>Startdato:</strong> {{iso_to_nor_date this.startdato}}</p>
+                <p><strong>Ny oppstartsdato:</strong> {{iso_to_nor_date this.startdato}}</p>
             {{/if}}
             {{#if this.sluttdato}}
-                <p><strong>Sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
+                <p><strong>Ny sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
             {{/if}}
             {{#if this.deltakelsesprosent}}
-                <p>{{this.deltakelsesprosent}} %</p>
+                <p>Ny deltakelsesprosent: {{this.deltakelsesprosent}} %</p>
                 {{#if this.dagerPerUke}}
-                    <p>{{this.dagerPerUke}}</p>
+                    <p>{{this.dagerPerUke}} dager i uka</p>
                 {{/if}}
             {{/if}}
             {{#if this.bakgrunnsinformasjon}}
                 <p>{{this.bakgrunnsinformasjon}}</p>
             {{/if}}
             {{#if this.innhold.length}}
+            <p>{{deltakerliste.ledetekst}}</p>
             <ul>
                 {{#each this.innhold}}
                 <li>{{this}}</li>
@@ -50,29 +52,11 @@
             {{/each}}
         </section>
 
-        <section>
-            <h2>Hva er dette?</h2>
-            <p>Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak kapittel {{deltakerliste.forskriftskapittel}}.</p>
-        </section>
+        {{> amt/hvaerdette}}
 
-        <section>
-            <h2>Du har rett til å klage</h2>
-            <p>Du kan klage hvis du ikke ønsker å delta, er uenig i endringer på deltakelsen eller du ønsker et annet arbeidsmarkedstiltak. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
-        </section>
+        {{> amt/klage}}
 
-        <section>
-            <h2>Hva deles med arrangøren?</h2>
-            <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
-            <ul>
-                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
-                <li>Påmeldingen: Innholdet og bakgrunnsinformasjon</li>
-                <li>Navn og fødselsnummer</li>
-                <li>Telefonnummer og e-postadresse</li>
-                {{#if deltaker.adresselinjer.length}}
-                <li>Adresse</li>
-                {{/if}}
-            </ul>
-        </section>
+        {{> amt/sporsmal}}
 
         {{> amt/avsender}}
     </main>
