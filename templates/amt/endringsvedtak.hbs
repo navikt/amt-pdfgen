@@ -16,15 +16,7 @@
     <div id="footer">
         <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    <header>
-        <div class="personalia">
-            <p>{{deltaker.fornavn}} {{#if deltaker.mellomnavn}} {{deltaker.mellomnavn}} {{/if}} {{deltaker.etternavn}}</p>
-            {{#each deltaker.adresselinjer}}
-            <p>{{this}}</p>
-            {{/each}}
-        </div>
-        <img class="logo" alt="NAV logo" src="{{ image "Navlogo.png" }}"/>
-    </header>
+    {{> amt/header}}
     <main>
         <section>
             <h1>Endring i: {{deltakerliste.navn}}</h1>
@@ -82,13 +74,7 @@
             </ul>
         </section>
 
-        <div style="padding-top: 3rem">
-            <p>
-                Med vennlig hilsen<br /><br />
-                {{navVeileder.navn}}<br />
-                {{navVeileder.enhet}}
-            </p>
-        </div>
+        {{> amt/avsender}}
     </main>
 </body>
 </html>
