@@ -14,13 +14,13 @@
 </head>
 <body>
     <div id="footer">
-        <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
     {{> amt/header}}
     <main>
         <section>
-            <h1>Vedtak om deltakelse på {{deltakerliste.navn}}</h1>
-            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.</p>
+            <h1>{{deltakerliste.navn}}</h1>
+            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}. Når arrangøren har en ledig plass så vil de ta kontakt med deg for å avklare oppstart.</p>
         <section>
 
             </section>
@@ -74,6 +74,11 @@
                 <li>Adresse</li>
                 {{/if}}
             </ul>
+        </section>
+
+        <section>
+            <h2>Har du spørsmål?</h2>
+            <p>På <a href="https://www.nav.no/arbeid/dialog">nav.no/arbeid/dialog</a> kan du ha dialog med veilederen din. Du kan ringe oss på telefon 55 55 33 33, hverdager 09.00-15.00.</p>
         </section>
 
         {{> amt/avsender}}
