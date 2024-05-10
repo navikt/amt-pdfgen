@@ -6,41 +6,16 @@
     <meta name="author" content="amt-pdfgen"/>
     <meta name="subject" content="Vedtak"/>
 
-    <style>
-        @page {
-            margin: 1cm;
-        }
-        * {
-            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
-             box-sizing: border-box;
-        }
-        section {
-            page-break-inside: avoid;
-        }
-        header {
-            display: block;
-        }
-        .logo {
-            float: right;
-            height: 6rem;
-        }
-        .personalia {
-            float: left;
-            padding-top: 2rem;
-        }
-        p {
-            padding: 0;
-            margin: 0;
-        }
-        main {
-            clear: both;
-        }
-    </style>
+    {{#block 'amt/style' }}
+    {{/block}}
 
     <title>Vedtak om tiltaksdeltakelse</title>
 
 </head>
 <body>
+    <div id="footer">
+        <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
     <header>
         <div class="personalia">
             <p>{{deltaker.fornavn}} {{#if deltaker.mellomnavn}} {{deltaker.mellomnavn}} {{/if}} {{deltaker.etternavn}}</p>

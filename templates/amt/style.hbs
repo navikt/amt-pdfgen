@@ -1,0 +1,48 @@
+<style>
+    @page {
+        margin: 2cm;
+        @bottom-left {
+            content: element(footer);
+        }
+    }
+    * {
+        font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
+         box-sizing: border-box;
+    }
+    section {
+        page-break-inside: avoid;
+    }
+    header {
+        display: block;
+    }
+    .logo {
+        float: right;
+        height: 6rem;
+    }
+    .personalia {
+        float: left;
+        padding-top: 2rem;
+    }
+    p {
+        padding: 0;
+        margin: 0;
+    }
+    main {
+        clear: both;
+    }
+    #footer {
+        position: running(footer);
+        font-size: 12px;
+        margin-top: -25px;
+        padding-left: 0.6cm;
+    }
+    .sidetall {
+        float: right;
+    }
+    #pagenumber:before {
+        content: counter(page);
+    }
+    #pagecount:before {
+        content: counter(pages)
+    }
+</style>
