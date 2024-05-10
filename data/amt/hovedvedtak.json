@@ -15,10 +15,7 @@
             "deltakelsesprosent": 50,
             "dagerPerUke": null
         },
-        "adresselinjer": [
-            "17B Karl Johans Gate",
-            "0123 Oslo"
-        ]
+        "personident": "12345678910"
     },
     "deltakerliste": {
         "navn": "Arbeidsforberedende trening hos Muligheter AS",
@@ -31,5 +28,6 @@
     "navVeileder": {
         "navn": "Veileder Veilederesen",
         "enhet": "NAV Fyrstikkaleen"
-    }
+    },
+    "vedtaksdato": "2024-04-30"
 }

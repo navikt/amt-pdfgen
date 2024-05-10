@@ -6,54 +6,21 @@
     <meta name="author" content="amt-pdfgen"/>
     <meta name="subject" content="Vedtak"/>
 
-    <style>
-        @page {
-            margin: 1cm;
-        }
-        * {
-            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
-             box-sizing: border-box;
-        }
-        section {
-            page-break-inside: avoid;
-        }
-        header {
-            display: block;
-        }
-        .logo {
-            float: right;
-            height: 6rem;
-        }
-        .personalia {
-            float: left;
-            padding-top: 2rem;
-        }
-        p {
-            padding: 0;
-            margin: 0;
-        }
-        main {
-            clear: both;
-        }
-    </style>
+    {{#block 'amt/style' }}
+    {{/block}}
 
     <title>Vedtak om tiltaksdeltakelse</title>
 
 </head>
 <body>
-    <header>
-        <div class="personalia">
-            <p>{{deltaker.fornavn}} {{#if deltaker.mellomnavn}} {{deltaker.mellomnavn}} {{/if}} {{deltaker.etternavn}}</p>
-            {{#each deltaker.adresselinjer}}
-            <p>{{this}}</p>
-            {{/each}}
-        </div>
-        <img class="logo" alt="NAV logo" src="{{ image "Navlogo.png" }}"/>
-    </header>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+    {{> amt/header}}
     <main>
         <section>
-            <h1>Vedtak om deltakelse på {{deltakerliste.navn}}</h1>
-            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.</p>
+            <h1>{{deltakerliste.navn}}</h1>
+            <p>Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}. Når arrangøren har en ledig plass så vil de ta kontakt med deg for å avklare oppstart.</p>
         <section>
 
             </section>
@@ -109,13 +76,12 @@
             </ul>
         </section>
 
-        <div style="padding-top: 3rem">
-            <p>
-                Med vennlig hilsen<br /><br />
-                {{navVeileder.navn}}<br />
-                {{navVeileder.enhet}}
-            </p>
-        </div>
+        <section>
+            <h2>Har du spørsmål?</h2>
+            <p>På <a href="https://www.nav.no/arbeid/dialog">nav.no/arbeid/dialog</a> kan du ha dialog med veilederen din. Du kan ringe oss på telefon 55 55 33 33, hverdager 09.00-15.00.</p>
+        </section>
+
+        {{> amt/avsender}}
     </main>
 </body>
 </html>
