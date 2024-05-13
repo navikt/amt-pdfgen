@@ -15,7 +15,8 @@
             "deltakelsesprosent": 50,
             "dagerPerUke": null
         },
-        "personident": "12345678910"
+        "personident": "12345678910",
+        "adresseDelesMedArrangor": true
     },
     "deltakerliste": {
         "navn": "Arbeidsforberedende trening hos Muligheter AS",
