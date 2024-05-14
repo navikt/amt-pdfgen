@@ -41,13 +41,10 @@
             <p>{{deltaker.bakgrunnsinformasjon}}</p> 
         </section>
 
-        {{#if deltaker.deltakelsesmengde}}
+        {{#if deltaker.deltakelsesmengdeTekst}}
             <section>
                 <h2>Deltakelsesmengde</h2>
-                <p>{{deltaker.deltakelsesmengde.deltakelsesprosent}} %</p>
-                {{#if deltaker.deltakelsesmengde.dagerPerUke}}
-                    <p>{{deltaker.deltakelsesmengde.dagerPerUke}}</p>
-                {{/if}}
+                <p>{{deltaker.deltakelsesmengdeTekst}}</p>
             </section>
         {{/if}}
 

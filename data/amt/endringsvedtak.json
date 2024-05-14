@@ -15,8 +15,8 @@
   "endringer": [
     {
       "type": "Deltakelsesmengde",
-      "deltakelsesprosent": 99.0,
-      "dagerPerUke": 5.0
+      "deltakelsesprosent": 99,
+      "dagerPerUkeTekst": "5 dager i uka"
     },
     {
       "type": "Forlengelse",
