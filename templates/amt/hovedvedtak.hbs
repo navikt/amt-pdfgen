@@ -41,19 +41,19 @@
             <p>{{deltaker.bakgrunnsinformasjon}}</p> 
         </section>
 
-        {{#if deltaker.deltakelsesmengde}}
+        {{#if deltaker.deltakelsesmengdeTekst}}
             <section>
                 <h2>Deltakelsesmengde</h2>
-                <p>{{deltaker.deltakelsesmengde.deltakelsesprosent}} %</p>
-                {{#if deltaker.deltakelsesmengde.dagerPerUke}}
-                    <p>{{deltaker.deltakelsesmengde.dagerPerUke}}</p>
-                {{/if}}
+                <p>{{deltaker.deltakelsesmengdeTekst}}</p>
             </section>
         {{/if}}
 
         {{> amt/hvaerdette}}
 
-        {{> amt/klage}}
+        <section>
+            <h2>Du har rett til å klage</h2>
+            <p>Du kan klage hvis du ikke ønsker å delta, er uenig i endringer på deltakelsen eller du ønsker et annet arbeidsmarkedstiltak. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
+        </section>
 
         <section>
             <h2>Hva deles med arrangøren?</h2>

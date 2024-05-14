@@ -11,10 +11,7 @@
             "Oppfølging på arbeidsplassen"
         ],
         "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen",
-        "deltakelsesmengde": {
-            "deltakelsesprosent": 50,
-            "dagerPerUke": null
-        },
+        "deltakelsesmengdeTekst": "70 % 3 dager i uka",
         "personident": "12345678910",
         "adresseDelesMedArrangor": true
     },

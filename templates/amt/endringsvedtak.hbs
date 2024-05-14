@@ -34,8 +34,8 @@
             {{/if}}
             {{#if this.deltakelsesprosent}}
                 <p>Ny deltakelsesprosent: {{this.deltakelsesprosent}} %</p>
-                {{#if this.dagerPerUke}}
-                    <p>{{this.dagerPerUke}} dager i uka</p>
+                {{#if this.dagerPerUkeTekst}}
+                    <p>{{this.dagerPerUkeTekst}}</p>
                 {{/if}}
             {{/if}}
             {{#if this.bakgrunnsinformasjon}}
@@ -54,7 +54,10 @@
 
         {{> amt/hvaerdette}}
 
-        {{> amt/klage}}
+        <section>
+            <h2>Du har rett til å klage</h2>
+            <p>Du kan klage hvis du er uenig i endringer på deltakelsen. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
+        </section>
 
         {{> amt/sporsmal}}
 
