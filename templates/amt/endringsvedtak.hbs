@@ -24,13 +24,13 @@
             {{#each endringer}}
             <h2>Ny endring: {{this.type}}</h2>
             {{#if this.aarsak}}
-                <p><strong>Årsak:</strong> {{this.aarsak}}</p>
+                <p>Årsak: {{this.aarsak}}</p>
             {{/if}}
             {{#if this.startdato}}
-                <p><strong>Ny oppstartsdato:</strong> {{iso_to_nor_date this.startdato}}</p>
+                <p>Ny oppstartsdato: {{iso_to_nor_date this.startdato}}</p>
             {{/if}}
             {{#if this.sluttdato}}
-                <p><strong>Ny sluttdato:</strong> {{iso_to_nor_date this.sluttdato}}</p>
+                <p>Ny sluttdato: {{iso_to_nor_date this.sluttdato}}</p>
             {{/if}}
             {{#if this.deltakelsesprosent}}
                 <p>Ny deltakelsesprosent: {{this.deltakelsesprosent}} %</p>
