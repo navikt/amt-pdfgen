@@ -21,7 +21,8 @@
     {
       "type": "Forlengelse",
       "sluttdato": "2024-07-03",
-      "begrunnelse": "Se samtalereferat"
+      "begrunnelseFraNav": "Se samtalereferat",
+      "begrunnelseFraArrangor": "Tiltaket har god effekt og bør forlenges."
     },
     {
       "type": "Avslutt deltakelse",

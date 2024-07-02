@@ -38,9 +38,19 @@
                     <p>{{this.dagerPerUkeTekst}}</p>
                 {{/if}}
             {{/if}}
-            {{#if this.begrunnelse}}
-                <p>Begrunnelse:</p>
-                <p>{{this.begrunnelse}}</p>
+            {{#if this.begrunnelseFraArrangor}}
+                {{#if this.begrunnelseFraNav}}
+                    <p>Begrunnelse fra NAV:</p>
+                    <p>{{this.begrunnelseFraNav}}</p>
+                    <br />
+                {{/if}}
+                <p>Begrunnelse fra arrangør:</p>
+                <p>{{this.begrunnelseFraArrangor}}</p>
+            {{else}}
+                {{#if this.begrunnelseFraNav}}
+                    <p>Begrunnelse:</p>
+                    <p>{{this.begrunnelseFraNav}}</p>
+                {{/if}}
             {{/if}}
             {{#if this.bakgrunnsinformasjon}}
                 <p>{{this.bakgrunnsinformasjon}}</p>
