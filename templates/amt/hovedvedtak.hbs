@@ -24,7 +24,7 @@
         </section>
 
         <section>
-            <h2>Hva er innholdet?</h2>
+            <h2>Dette er innholdet</h2>
             <p>{{deltakerliste.ledetekst}}</p>
 
             {{#if deltaker.innhold.length}}
@@ -36,10 +36,12 @@
             {{/if}}
         </section>
 
+        {{#if deltaker.bakgrunnsinformasjon}}
         <section>
             <h2>Bakgrunnsinfo</h2>
             <p>{{deltaker.bakgrunnsinformasjon}}</p>
         </section>
+        {{/if}}
 
         {{#if deltaker.deltakelsesmengdeTekst}}
             <section>
@@ -56,7 +58,7 @@
         </section>
 
         <section>
-            <h2>Hva deles med arrangøren?</h2>
+            <h2>Dette deles med arrangøren</h2>
             <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
             <ul>
                 <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
