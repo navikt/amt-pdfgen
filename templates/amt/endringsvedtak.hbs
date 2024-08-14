@@ -26,6 +26,13 @@
             {{#if this.aarsak}}
                 <p>Årsak: {{this.aarsak}}</p>
             {{/if}}
+            {{#if this.startdatoFraArrangor}}
+                <p>Oppstartsdato: {{iso_to_nor_date this.startdatoFraArrangor}}</p>
+                {{#if this.sluttdatoFraArrangor}}
+                    <p>Forventet sluttdato: {{iso_to_nor_date this.sluttdatoFraArrangor}}</p>
+                {{/if}}
+                <p>Endret {{iso_to_nor_date vedtaksdato}} av {{deltakerliste.arrangor.navn}}</p>
+            {{/if}}
             {{#if this.startdato}}
                 <p>Ny oppstartsdato: {{iso_to_nor_date this.startdato}}</p>
             {{/if}}
