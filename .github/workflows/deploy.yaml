@@ -1,6 +1,6 @@
 name: Deploy application
 on:
-  workflow_dispatch: # This workflow can be triggered manually from: https://github.com/navikt/amt-aktivitetskort-publisher/actions/workflows/deploy.yaml
+  workflow_dispatch: # This workflow can be triggered manually from: https://github.com/navikt/amt-pdfgen/actions/workflows/deploy.yaml
   push:
     branches:
       - main
@@ -43,4 +43,21 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: .nais/nais-dev.yaml
+          VAR: image=${{ needs.test-build-and-push.outputs.image }}
+
+  deploy-prod:
+    name: Deploy application to prod
+    needs: [ test-build-and-push, deploy-dev ]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: "write"
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy application
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: .nais/nais-prod.yaml
           VAR: image=${{ needs.test-build-and-push.outputs.image }}
