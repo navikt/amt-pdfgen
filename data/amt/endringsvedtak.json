@@ -14,25 +14,36 @@
   },
   "endringer": [
     {
-      "type": "Deltakelsesmengde",
-      "deltakelsesprosent": 99,
-      "dagerPerUkeTekst": "Fordelt på 5 dager i uka"
+      "tittel": "Deltakelsen er endret til 80 % fordelt på 3 dager i uka",
+      "begrunnelseFraNav": "Bla bla"
     },
     {
-      "type": "Forlengelse",
-      "sluttdato": "2024-07-03",
+      "tittel": "Deltakelsen er forlenget til 3. juli 2024",
       "begrunnelseFraNav": "Se samtalereferat",
-      "begrunnelseFraArrangor": "Tiltaket har god effekt og bør forlenges."
+      "forslagFraArrangor": {
+        "type": "Forleng deltakelse",
+        "sluttdato": "2024-07-02",
+        "begrunnelseFraArrangor": "Tiltaket har god effekt og bør forlenges."
+      }
     },
     {
-      "type": "Avslutt deltakelse",
-      "aarsak": "Fått jobb",
-      "sluttdato": "2024-05-28"
+      "tittel": "Ny sluttdato er 28. mai 2024",
+      "aarsak": "Fått jobb"
     },
     {
-      "type": "Oppstartsdato",
-      "startdatoFraArrangor": "2024-01-15",
+      "tittel": "Oppstartsdato er 15. januar 2024",
+      "endringFraArrangor": true,
       "sluttdatoFraArrangor": "2024-04-15"
+    },
+    {
+      "tittel": "Deltakelsen er ikke aktuell",
+      "aarsak": "Møter ikke opp",
+      "forslagFraArrangor": {
+        "type": "Avslutt deltakelse",
+        "aarsak": "Møter ikke opp",
+        "harDeltatt": "Nei",
+        "begrunnelseFraArrangor": "Deltakeren møter ikke opp"
+      }
     }
   ],
   "navVeileder": {
