@@ -28,12 +28,12 @@
                 {{/if}}
                 {{#if this.endringFraArrangor}}
                     {{#if this.sluttdatoFraArrangor}}
-                        <p>Forventet sluttdato: {{iso_to_long_date this.sluttdatoFraArrangor}}</p>
+                        <p>Forventet sluttdato: {{iso_to_nor_date this.sluttdatoFraArrangor}}</p>
                     {{/if}}
-                    <p>Endret {{iso_to_long_date vedtaksdato}} av {{deltakerliste.arrangor.navn}}</p>
+                    <p>Endret {{iso_to_nor_date vedtaksdato}} av {{deltakerliste.arrangor.navn}}</p>
                 {{/if}}
                 {{#if this.sluttdato}}
-                    <p>Forventet sluttdato: {{iso_to_long_date this.sluttdato}}</p>
+                    <p>Forventet sluttdato: {{iso_to_nor_date this.sluttdato}}</p>
                 {{/if}}
                 {{#if this.begrunnelseFraNav}}
                     <p>NAVs begrunnelse: {{this.begrunnelseFraNav}}</p>
@@ -49,10 +49,10 @@
                             <p>Har personen deltatt? {{this.forslagFraArrangor.harDeltatt}}</p>
                         {{/if}}
                         {{#if this.forslagFraArrangor.startdato}}
-                            <p>Ny oppstartsdato: {{iso_to_long_date this.forslagFraArrangor.startdato}}</p>
+                            <p>Ny oppstartsdato: {{iso_to_nor_date this.forslagFraArrangor.startdato}}</p>
                         {{/if}}
                         {{#if this.forslagFraArrangor.sluttdato}}
-                            <p>Ny sluttdato: {{iso_to_long_date this.forslagFraArrangor.sluttdato}}</p>
+                            <p>Ny sluttdato: {{iso_to_nor_date this.forslagFraArrangor.sluttdato}}</p>
                         {{/if}}
                         {{#if this.forslagFraArrangor.deltakelsesmengdeTekst}}
                             <p>Ny deltakelsesmengde: {{this.forslagFraArrangor.deltakelsesmengdeTekst}}</p>
