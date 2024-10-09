@@ -44,6 +44,18 @@
         "harDeltatt": "Nei",
         "begrunnelseFraArrangor": "Deltakeren møter ikke opp"
       }
+    },
+    {
+      "tittel": "Bakgrunnsinfo er endret",
+      "bakgrunnsinformasjon": "Masse flott bakgrunnsinformasjon"
+    },
+    {
+      "tittel": "Innholdet er endret",
+      "innhold": [
+        "Innhold 1",
+        "Innhold 2",
+        "Innhold 3"
+      ]
     }
   ],
   "navVeileder": {
