@@ -20,44 +20,45 @@
     <main>
         <section>
             <h1>Endring: {{deltakerliste.navn}}</h1>
-            <p>Du ble meldt på arbeidsmarkedstiltaket {{deltakerliste.navn}} {{iso_to_nor_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Endringen er delt med arrangør.</p>
+            <p>Du ble meldt på arbeidsmarkedstiltaket {{deltakerliste.navn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon. </p>
             {{#each endringer}}
-            <h2>Ny endring: {{this.type}}</h2>
+            <h2>{{this.tittel}}</h2>
             {{#if this.aarsak}}
                 <p>Årsak: {{this.aarsak}}</p>
             {{/if}}
-            {{#if this.startdatoFraArrangor}}
-                <p>Oppstartsdato: {{iso_to_nor_date this.startdatoFraArrangor}}</p>
+            {{#if this.endringFraArrangor}}
                 {{#if this.sluttdatoFraArrangor}}
-                    <p>Forventet sluttdato: {{iso_to_nor_date this.sluttdatoFraArrangor}}</p>
+                    <p>Forventet sluttdato: {{iso_to_long_date this.sluttdatoFraArrangor}}</p>
                 {{/if}}
-                <p>Endret {{iso_to_nor_date vedtaksdato}} av {{deltakerliste.arrangor.navn}}</p>
-            {{/if}}
-            {{#if this.startdato}}
-                <p>Ny oppstartsdato: {{iso_to_nor_date this.startdato}}</p>
+                <p>Endret {{iso_to_long_date vedtaksdato}} av {{deltakerliste.arrangor.navn}}</p>
             {{/if}}
             {{#if this.sluttdato}}
-                <p>Ny sluttdato: {{iso_to_nor_date this.sluttdato}}</p>
+                <p>Forventet sluttdato: {{iso_to_long_date this.sluttdato}}</p>
             {{/if}}
-            {{#if this.deltakelsesprosent}}
-                <p>Ny deltakelsesprosent: {{this.deltakelsesprosent}} %</p>
-                {{#if this.dagerPerUkeTekst}}
-                    <p>{{this.dagerPerUkeTekst}}</p>
-                {{/if}}
+            {{#if this.begrunnelseFraNav}}
+                <p>NAVs begrunnelse: {{this.begrunnelseFraNav}}</p>
             {{/if}}
-            {{#if this.begrunnelseFraArrangor}}
-                {{#if this.begrunnelseFraNav}}
-                    <p>Begrunnelse fra NAV:</p>
-                    <p>{{this.begrunnelseFraNav}}</p>
-                    <br />
-                {{/if}}
-                <p>Begrunnelse fra arrangør:</p>
-                <p>{{this.begrunnelseFraArrangor}}</p>
-            {{else}}
-                {{#if this.begrunnelseFraNav}}
-                    <p>Begrunnelse:</p>
-                    <p>{{this.begrunnelseFraNav}}</p>
-                {{/if}}
+            {{#if this.forslagFraArrangor}}
+                <div class="forslag">
+                    <p><b>Forslaget sendt  fra arrangør:</b></p>
+                    <p>{{this.forslagFraArrangor.type}}</p>
+                    {{#if this.forslagFraArrangor.aarsak}}
+                        <p>Årsak: {{this.forslagFraArrangor.aarsak}}</p>
+                    {{/if}}
+                    {{#if this.forslagFraArrangor.harDeltatt}}
+                        <p>Har personen deltatt? {{this.forslagFraArrangor.harDeltatt}}</p>
+                    {{/if}}
+                    {{#if this.forslagFraArrangor.startdato}}
+                        <p>Ny oppstartsdato: {{iso_to_long_date this.forslagFraArrangor.startdato}}</p>
+                    {{/if}}
+                    {{#if this.forslagFraArrangor.sluttdato}}
+                        <p>Ny sluttdato: {{iso_to_long_date this.forslagFraArrangor.sluttdato}}</p>
+                    {{/if}}
+                    {{#if this.forslagFraArrangor.deltakelsesmengdeTekst}}
+                        <p>Ny deltakelsesmengde: {{this.forslagFraArrangor.deltakelsesmengdeTekst}}</p>
+                    {{/if}}
+                    <p>Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
+                </div>
             {{/if}}
             {{#if this.bakgrunnsinformasjon}}
                 <p>{{this.bakgrunnsinformasjon}}</p>
