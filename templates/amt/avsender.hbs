@@ -1,7 +1,9 @@
 <div class="avsender">
     <p>
         Med vennlig hilsen<br />
-        {{navVeileder.navn}}<br />
-        {{navVeileder.enhet}}
+        {{#if avsender.navn}}
+            {{avsender.navn}}<br />
+        {{/if}}
+        {{avsender.enhet}}
     </p>
 </div>

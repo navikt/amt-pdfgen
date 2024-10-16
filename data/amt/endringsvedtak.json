@@ -58,8 +58,8 @@
       ]
     }
   ],
-  "navVeileder": {
-    "navn": "Veileder Veilederesen",
+  "avsender": {
+    "navn": "Veileder Veiledersen",
     "enhet": "NAV Fyrstikkaleen"
   },
   "vedtaksdato": "2024-05-03",
