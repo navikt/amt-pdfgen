@@ -23,6 +23,9 @@
         {{#each endringer}}
             <section>
                 <h2>{{this.tittel}}</h2>
+                {{#if this.gyldigFra}}
+                    <p>Endringen gjelder fra: {{iso_to_nor_date this.gyldigFra}}</p>
+                {{/if}}
                 {{#if this.aarsak}}
                     <p>Årsak: {{this.aarsak}}</p>
                 {{/if}}
