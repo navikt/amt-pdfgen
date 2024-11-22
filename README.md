@@ -30,3 +30,5 @@ Endringer i templates eller data blir visende i pdfen etter en refresh.
 - http://localhost:8080/api/v1/genpdf/amt/hovedvedtak-vta
 - http://localhost:8080/api/v1/genpdf/amt/hovedvedtak-digoppf
 
+## Handlebars
+https://github.com/navikt/pdfgen-core/blob/main/src/main/kotlin/no/nav/pdfgen/core/template/Helpers.kt

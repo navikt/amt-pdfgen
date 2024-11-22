@@ -17,6 +17,7 @@
         "adresseDelesMedArrangor": true
     },
     "deltakerliste": {
+        "tiltakskode": "ARBEIDSFORBEREDENDE_TRENING",
         "navn": "Arbeidsforberedende trening hos Muligheter AS",
         "ledetekst": "Arbeidsforberedende trening er et tilbud for deg som først ønsker å jobbe i et tilrettelagt arbeidsmiljø. Du får veiledning og støtte av en veileder. Sammen kartlegger dere hvordan din kompetanse, interesser og ferdigheter påvirker muligheten din til å jobbe.",
         "arrangor": {
