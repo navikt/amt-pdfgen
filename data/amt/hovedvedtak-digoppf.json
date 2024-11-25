@@ -4,11 +4,10 @@
         "mellomnavn": null,
         "etternavn": "Navnersen",
         "innhold": [
-            "Annet: Dette er en valgfri beskrivelse"
         ],
-        "innholdBeskrivelse": "Dette er en valgfri beskrivelse",
-        "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen",
-        "deltakelsesmengdeTekst": "70 % fordelt på 3 dager i uka",
+        "innholdBeskrivelse": null,
+        "bakgrunnsinformasjon": null,
+        "deltakelsesmengdeTekst": null,
         "personident": "12345678910",
         "adresseDelesMedArrangor": true
     },
@@ -19,7 +18,7 @@
         "arrangor": {
             "navn": "Muligheter AS"
         },
-        "forskriftskapittel": 13
+        "forskriftskapittel": 4
     },
     "avsender": {
         "navn": "Veileder Veiledersen",
