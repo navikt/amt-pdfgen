@@ -1,0 +1,29 @@
+{
+    "deltaker": {
+        "fornavn": "Navn",
+        "mellomnavn": null,
+        "etternavn": "Navnersen",
+        "innhold": [
+        ],
+        "innholdBeskrivelse": null,
+        "bakgrunnsinformasjon": null,
+        "deltakelsesmengdeTekst": null,
+        "personident": "12345678910",
+        "adresseDelesMedArrangor": true
+    },
+    "deltakerliste": {
+        "tiltakskode": "DIGITALT_OPPFOLGINGSTILTAK",
+        "navn": "Digitalt jobbsøkerkurs hos Muligheter AS",
+        "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på arbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju.",
+        "arrangor": {
+            "navn": "Muligheter AS"
+        },
+        "forskriftskapittel": 4
+    },
+    "avsender": {
+        "navn": "Veileder Veiledersen",
+        "enhet": "NAV Fyrstikkaleen"
+    },
+    "vedtaksdato": "2024-04-30",
+    "begrunnelseFraNav": "Det er riktig å delta på dette tiltaket likevel"
+}

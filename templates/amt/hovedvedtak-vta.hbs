@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Vedtak om tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Vedtak"/>
+
+    {{#block 'amt/style' }}
+    {{/block}}
+
+    <title>Vedtak om tiltaksdeltakelse</title>
+
+</head>
+<body>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+    {{> amt/sections/header}}
+    <main>
+        <section>
+            <h1>{{deltakerliste.navn}}</h1>
+            <p>
+                Du er meldt på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.
+                {{deltakerliste.arrangor.navn}} avgjør om du tilbys plass. Ved tilbud om plass vil du bli ansatt.
+                Når arrangøren har en ledig plass så vil de ta kontakt med deg for å avtale oppstart.
+            </p>
+            {{> amt/sections/begrunnelse-fra-nav}}
+        </section>
+
+        {{> amt/sections/innhold-med-beskrivelsetekst}}
+
+        {{> amt/sections/bakgrunnsinfo}}
+
+        {{> amt/sections/deltakelsesmengde}}
+
+        {{> amt/sections/dette-er-et-vedtak}}
+
+        {{> amt/sections/rett-til-klage}}
+
+        {{> amt/sections/dette-deles-med-arrangor}}
+
+        {{> amt/sections/sporsmal}}
+
+        {{> amt/sections/avsender}}
+    </main>
+</body>
+</html>
