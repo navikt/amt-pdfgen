@@ -16,7 +16,7 @@
     <div id="footer">
         <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    {{> amt/header}}
+    {{> amt/sections/header}}
     <main>
         <h1>Endring: {{deltakerliste.navn}}</h1>
         <p>Du ble meldt på arbeidsmarkedstiltaket {{deltakerliste.navn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon. </p>
@@ -77,16 +77,16 @@
             </section>
         {{/each}}
 
-        {{> amt/hvaerdette}}
+        {{> amt/sections/dette-er-et-vedtak}}
 
         <section>
             <h2>Du har rett til å klage</h2>
             <p>Du kan klage hvis du er uenig i endringer på deltakelsen. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
         </section>
 
-        {{> amt/sporsmal}}
+        {{> amt/sections/sporsmal}}
 
-        {{> amt/avsender}}
+        {{> amt/sections/avsender}}
     </main>
 </body>
 </html>
