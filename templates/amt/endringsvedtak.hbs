@@ -67,12 +67,18 @@
                     <p>{{this.bakgrunnsinformasjon}}</p>
                 {{/if}}
                 {{#if this.innhold.length}}
-                <p>{{deltakerliste.ledetekst}}</p>
-                <ul>
-                    {{#each this.innhold}}
-                    <li>{{this}}</li>
-                    {{/each}}
-                </ul>
+                    <p>{{deltakerliste.ledetekst}}</p>
+                    {{#if this.innholdBeskrivelse}}
+                        <br />
+                        <p>{{this.innholdBeskrivelse}}</p>
+                    {{/if}}
+                    {{#unless this.innholdBeskrivelse}}
+                        <ul>
+                            {{#each this.innhold}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    {{/unless}}
                 {{/if}}
             </section>
         {{/each}}
