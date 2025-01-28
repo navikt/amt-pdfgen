@@ -3,11 +3,29 @@
 {{/eq}}
 
 {{#eq deltakerliste.tiltakskode "DIGITALT_OPPFOLGINGSTILTAK"}}
-    {{> amt/hovedvedtak-digoppf}}
+    {{> amt/hovedvedtak-kurs}}
+{{/eq}}
+
+{{#eq deltakerliste.tiltakskode "GRUPPE_FAG_OG_YRKESOPPLAERING"}}
+    {{> amt/hovedvedtak-kurs}}
+{{/eq}}
+
+{{#eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+    {{> amt/hovedvedtak-kurs}}
+{{/eq}}
+
+{{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+    {{> amt/hovedvedtak-kurs}}
 {{/eq}}
 
 {{#not_eq deltakerliste.tiltakskode "VARIG_TILRETTELAGT_ARBEID_SKJERMET"}}
     {{#not_eq deltakerliste.tiltakskode "DIGITALT_OPPFOLGINGSTILTAK"}}
-        {{> amt/hovedvedtak-standard}}
+        {{#not_eq deltakerliste.tiltakskode "GRUPPE_FAG_OG_YRKESOPPLAERING"}}
+            {{#not_eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+                {{#not_eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+                    {{> amt/hovedvedtak-standard}}
+                {{/not_eq}}
+            {{/not_eq}}
+        {{/not_eq}}
     {{/not_eq}}
 {{/not_eq}}
