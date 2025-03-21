@@ -9,9 +9,9 @@
             "Karriereveiledning",
             "Kartlegge hvordan helsen din påvirker muligheten din til å jobbe",
             "Oppfølging på arbeidsplassen",
-            "Annet: Dette er en valgfri beskrivelse"
+            "Annet: Dette er en valgfri beskrivelse\nNy linje."
         ],
-        "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen",
+        "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen. \nNy linje.",
         "deltakelsesmengdeTekst": "70 % fordelt på 3 dager i uka",
         "personident": "12345678910",
         "adresseDelesMedArrangor": true

@@ -60,11 +60,11 @@
                         {{#if this.forslagFraArrangor.deltakelsesmengdeTekst}}
                             <p>Ny deltakelsesmengde: {{this.forslagFraArrangor.deltakelsesmengdeTekst}}</p>
                         {{/if}}
-                        <p>Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
+                        <p class="fritekst">Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
                     </div>
                 {{/if}}
                 {{#if this.bakgrunnsinformasjon}}
-                    <p>{{this.bakgrunnsinformasjon}}</p>
+                    <p class="fritekst">{{this.bakgrunnsinformasjon}}</p>
                 {{/if}}
                 {{#if this.innhold.length}}
                     <p>{{deltakerliste.ledetekst}}</p>
@@ -75,7 +75,7 @@
                     {{#unless this.innholdBeskrivelse}}
                         <ul>
                             {{#each this.innhold}}
-                            <li>{{this}}</li>
+                            <li class="fritekst">{{this}}</li>
                             {{/each}}
                         </ul>
                     {{/unless}}
