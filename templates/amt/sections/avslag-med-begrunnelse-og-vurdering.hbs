@@ -1,0 +1,23 @@
+{{#each endringer}}
+    <section>
+        <h2>{{this.tittel}}</h2>
+        {{#if this.aarsak}}
+            <p>Årsak: {{this.aarsak}}</p>
+        {{/if}}
+        {{#if this.begrunnelseFraNav}}
+         <div class="forslag">
+            <p class="fritekst">NAVs begrunnelse: {{this.begrunnelseFraNav}}</p>
+           </div>
+        {{/if}}
+
+        <h3>Vurdering fra arrangor</h3>
+        {{#if this.forslagFraArrangor.aarsak}}
+            <p>{{this.forslagFraArrangor.aarsak}}</p>
+        {{/if}}
+        {{#if this.forslagFraArrangor.begrunnelseFraArrangor}}
+            <div class="forslag">
+                <p class="fritekst">Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
+            </div>
+        {{/if}}
+    </section>
+{{/each}}
