@@ -1,0 +1,37 @@
+{
+  "deltaker": {
+    "fornavn": "Navn",
+    "mellomnavn": null,
+    "etternavn": "Navnersen",
+    "personident": "12345678910"
+  },
+  "deltakerliste": {
+    "navn": "Kurs: Arbeidsmarkedsopplæring",
+    "tiltakskode": "GRUPPE_ARBEIDSMARKEDSOPPLAERING",
+    "tiltakskodeNavn": "arbeidsmarkedsopplæring",
+    "deltakerlisteNavn": "Tiltak hos NAV NORDLAND",
+    "ledetekst": "Arbeidsmarkedsopplæring er et tilbud for deg som får uføretrygd. Du jobber i en skjermet bedrift med arbeidsoppgaver som er tilpasset deg.",
+    "arrangor": {
+      "navn": "Muligheter AS"
+    },
+    "forskriftskapittel": 7
+  },
+  "endringer": [
+    {
+      "tittel": "Søknaden er avslått",
+      "aarsak": "Krav for deltakelse er ikke oppfylt",
+      "begrunnelseFraNav": "En setning om hvorfor Nav mener at det ikke er aktuelt med deltakelse på dette bestemte kurset.",
+      "forslagFraArrangor": {
+        "type": "Avslutt deltakelse",
+        "aarsak": "Krav for deltakelse er ikke oppfylt",
+        "begrunnelseFraArrangor": "En setning med fritekst om hvorfor."
+      }
+    }
+  ],
+  "avsender": {
+    "navn": "Veileder Veiledersen",
+    "enhet": "NAV Fyrstikkaleen"
+  },
+  "vedtaksdato": "2024-05-03",
+  "forsteVedtakFattet": "2024-04-30"
+}
