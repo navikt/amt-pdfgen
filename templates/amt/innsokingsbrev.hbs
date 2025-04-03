@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Innsøking på tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Innsøkingsbrev"/>
+
+    {{#block 'amt/style' }}
+    {{/block}}
+
+    <title>Innsøking på tiltak</title>
+
+</head>
+<body>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+
+    {{> amt/sections/header}}
+
+    <main>
+
+        <section>
+            <h1>{{deltakerliste.navn}}</h1>
+            <p>Du er søkt inn på arbeidsmarkedstiltaket: {{deltakerliste.navn}}.</p>
+        </section>
+
+        {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+            {{> amt/sections/innhold-med-beskrivelsestekst}}
+        {{/eq}}
+
+        <section>
+            <h2>Om kurset</h2>
+            <p>
+                Kursets oppstartsdato: {{deltakerliste.startdato}}
+                <br />
+                Sluttdato: {{deltakerliste.sluttdato}}
+            </p>
+            <br/>
+            <p>
+                Når det nærmer seg oppstart av kurset, vil Nav gjøre en vurdering av om du oppfyller kravene for å delta. Du får svar på søknaden etter dette. Hvis du oppfyller kravene, vil du bli tildelt en plass eller satt på venteliste. Dersom kravene til kurset ikke er oppfylt, vil du få avslag på søknaden.
+            </p>
+            <br/>
+            <p>
+               For å avgjøre hvem som skal få plass, kan Nav be om hjelp til vurdering fra arrangøren av kurset. Arrangør eller Nav vil kontakte deg hvis det er behov for et møte.
+            </p>
+            <br/>
+            <p>
+               Du vil få beskjed dersom det oversendes informasjon om deg til arrangør. Hvilken informasjon som deles med Muligheter AS kan du se under “Dette deles med arrangøren”.
+            </p>
+        </section>
+
+        <section>
+            <h2>Dette deles med arrangøren</h2>
+            <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
+            <ul>
+                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
+                <li>Navn og fødselsnummer</li>
+                <li>Telefonnummer og e-postadresse</li>
+            </ul>
+        </section>
+
+        {{> amt/sections/sporsmal}}
+
+        {{> amt/sections/avsender}}
+    </main>
+</body>
+</html>

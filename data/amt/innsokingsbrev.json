@@ -1,0 +1,22 @@
+{
+    "deltaker": {
+        "fornavn": "Navn",
+        "mellomnavn": null,
+        "etternavn": "Navnersen",
+        "personident": "12345678910"
+    },
+    "deltakerliste": {
+        "tiltakskode": "GRUPPE_FAG_OG_YRKESOPPLAERING",
+        "navn": "Fag- og yrkesopplæring hos Muligheter AS",
+        "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på arbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju.",
+        "arrangor": {
+            "navn": "Muligheter AS"
+        },
+        "startdato": "05.09.2035",
+        "sluttdato": "05.10.2035"
+    },
+    "avsender": {
+        "navn": "Veileder Veiledersen",
+        "enhet": "NAV Fyrstikkaleen"
+    }
+}
