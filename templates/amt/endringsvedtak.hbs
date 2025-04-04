@@ -18,8 +18,8 @@
     </div>
     {{> amt/sections/header}}
     <main>
-        <h1>Endring: {{deltakerliste.navn}}</h1>
-        <p>Du ble meldt på arbeidsmarkedstiltaket {{deltakerliste.navn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon. </p>
+        <h1>Endring: {{this.sidetittel}}</h1>
+        <p>Du ble meldt på arbeidsmarkedstiltaket {{this.ingressnavn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon. </p>
         {{#each endringer}}
             <section>
                 <h2>{{this.tittel}}</h2>
