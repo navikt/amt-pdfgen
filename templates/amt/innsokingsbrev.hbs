@@ -41,14 +41,12 @@
             <p>
                 Når det nærmer seg oppstart av kurset, vil Nav gjøre en vurdering av om du oppfyller kravene for å delta. Du får svar på søknaden etter dette. Hvis du oppfyller kravene, vil du bli tildelt en plass eller satt på venteliste. Dersom kravene til kurset ikke er oppfylt, vil du få avslag på søknaden.
             </p>
-            <br/>
-            <p>
-               For å avgjøre hvem som skal få plass, kan Nav be om hjelp til vurdering fra arrangøren av kurset. Arrangør eller Nav vil kontakte deg hvis det er behov for et møte.
-            </p>
-            <br/>
-            <p>
-               Du vil få beskjed dersom det oversendes informasjon om deg til arrangør. Hvilken informasjon som deles med Muligheter AS kan du se under “Dette deles med arrangøren”.
-            </p>
+            {{#not_eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+                <br/>
+                <p>
+                   For å avgjøre hvem som skal få plass, kan Nav be om hjelp til vurdering fra arrangøren av kurset. Arrangør eller Nav vil kontakte deg hvis det er behov for et møte.
+                </p>
+            {{/not_eq}}
         </section>
 
         <section>
