@@ -20,7 +20,13 @@
     <main>
         {{> amt/sections/overskrift-med-ingress}}
 
-        {{> amt/sections/innhold-med-beskrivelsetekst}}
+        {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+            {{> amt/sections/innhold-med-beskrivelsetekst}}
+        {{/eq}}
+
+        {{#eq deltakerliste.tiltakskode "DIGITALT_OPPFOLGINGSTILTAK"}}
+            {{> amt/sections/innhold-med-beskrivelsetekst}}
+        {{/eq}}
 
         {{> amt/sections/dette-er-et-vedtak}}
 

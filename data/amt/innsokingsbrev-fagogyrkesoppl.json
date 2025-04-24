@@ -8,7 +8,7 @@
     "deltakerliste": {
         "tiltakskode": "GRUPPE_FAG_OG_YRKESOPPLAERING",
         "navn": "Fag- og yrkesopplæring hos Muligheter AS",
-        "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på arbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju.",
+        "ledetekst": null,
         "arrangor": {
             "navn": "Muligheter AS"
         },
