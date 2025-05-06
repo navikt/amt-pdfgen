@@ -1,0 +1,22 @@
+{
+  "deltaker": {
+    "fornavn": "Navn",
+    "mellomnavn": null,
+    "etternavn": "Navnersen",
+    "personident": "12345678910",
+    "opprettetDato":"2025-04-04"
+  },
+  "deltakerliste": {
+    "tittelNavn": "Arbeidsmarkedsopplæring hos Muligheter AS",
+    "ingressNavn": "Sveiserkurs - Møre og romsdal DEL 1",
+    "arrangor": {
+      "navn": "Muligheter AS"
+    },
+    "startdato": "2025-05-04"
+  },
+  "avsender": {
+    "navn": "Veileder Veiledersen",
+    "enhet": "NAV Fyrstikkaleen"
+  },
+  "opprettetDato": "2025-05-06"
+}
