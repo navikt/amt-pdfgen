@@ -1,0 +1,21 @@
+{
+    "deltaker": {
+        "fornavn": "Navn",
+        "mellomnavn": null,
+        "etternavn": "Navnersen",
+        "personident": "12345678910"
+    },
+    "deltakerliste": {
+        "tiltakskode": "JOBBKLUBB",
+        "tittelNavn": "Arbeidsmarkedsopplæring hos Muligheter AS",
+        "ingressNavn": "Sveiserkurs - Møre og romsdal DEL 1",
+        "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på arbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju.",
+        "startdato": "2024-10-30",
+        "sluttdato": "2024-11-30"
+    },
+    "avsender": {
+        "navn": "Veileder Veiledersen",
+        "enhet": "NAV Fyrstikkaleen"
+    },
+    "opprettetDato": "2024-04-30"
+}
