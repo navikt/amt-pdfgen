@@ -11,7 +11,8 @@
         "ingressNavn": "Sveiserkurs - Møre og romsdal DEL 1",
         "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på arbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju.",
         "startdato": "20.10.2025",
-        "sluttdato": "30.10.2025"
+        "sluttdato": "30.10.2025",
+        "forskriftskapittel": 10
     },
     "avsender": {
         "navn": "Veileder Veiledersen",
