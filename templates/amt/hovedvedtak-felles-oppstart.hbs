@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Vedtak om tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Vedtak"/>
+
+    {{#block 'amt/style' }}
+    {{/block}}
+
+    <title>Vedtak om tiltaksdeltakelse</title>
+
+</head>
+<body>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+    {{> amt/sections/header}}
+    <main>
+        <section>
+            <h1>{{this.deltakerliste.tittelNavn}}</h1>
+            <p>
+                Du har fått plass på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}}.
+                Arrangøren tar kontakt med deg for å avtale oppstart.
+            </p>
+        </section>
+        <section>
+            <h2>Om kurset</h2>
+            <p>
+                Kursets oppstartsdato: {{deltakerliste.startdato}}
+                <br />
+                Sluttdato: {{deltakerliste.sluttdato}}
+            </p>
+        </section>
+
+        {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
+            {{> amt/sections/innhold-med-beskrivelsetekst}}
+        {{/eq}}
+
+        {{#eq deltakerliste.tiltakskode "DIGITALT_OPPFOLGINGSTILTAK"}}
+            {{> amt/sections/innhold-med-beskrivelsetekst}}
+        {{/eq}}
+
+        {{> amt/sections/dette-er-et-vedtak}}
+
+        {{#eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+            {{> amt/sections/unntak-fra-klagerett}}
+        {{/eq}}
+        {{#not_eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+            {{> amt/sections/rett-til-klage}}
+        {{/not_eq}}
+
+        <section>
+            <h2>Dette deles med arrangøren</h2>
+            <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
+            <ul>
+                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
+                <li>Navn og fødselsnummer</li>
+                <li>Telefonnummer og e-postadresse</li>
+            </ul>
+        </section>
+
+        {{> amt/sections/sporsmal}}
+
+        {{> amt/sections/avsender}}
+    </main>
+</body>
+</html>
