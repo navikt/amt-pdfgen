@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Vedtak om tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Vedtak"/>
+
+    {{#block 'amt/style' }}
+    {{/block}}
+
+    <title>Vedtak om tiltaksdeltakelse</title>
+
+</head>
+<body>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+    {{> amt/sections/header}}
+    <main>
+        <h1>Endring: {{capitalize deltakerliste.tiltakskodeNavn}} hos {{deltakerliste.arrangor.navn}}</h1>
+        <p>Du ble meldt på {{deltakerliste.tiltakskodeNavn}} {{deltakerliste.deltakerlisteNavn}} hos {{deltakerliste.arrangor.navn}} {{iso_to_nor_date vedtaksdato}}, og deltakelsen er nå endret. Du, arrangør og Nav ser samme informasjon.</p>
+
+        {{> amt/sections/avslag-med-begrunnelse-og-vurdering}}
+
+        {{> amt/sections/dette-er-et-vedtak}}
+
+        {{#eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+            <section>
+                <h2>Unntak fra klageretten</h2>
+                <p>Etter forvaltningslovforskriften § 33 har du ikke rett til å klage på avgjørelsen når du får avslag på å delta på dette arbeidsmarkedstiltaket.</p>
+            </section>
+        {{/eq}}
+        {{#not_eq deltakerliste.tiltakskode "GRUPPE_ARBEIDSMARKEDSOPPLAERING"}}
+            {{> amt/sections/rett-til-klage}}
+        {{/not_eq}}
+
+        {{> amt/sections/sporsmal}}
+
+        {{> amt/sections/avsender}}
+    </main>
+</body>
+</html>
