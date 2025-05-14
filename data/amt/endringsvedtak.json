@@ -3,7 +3,8 @@
     "fornavn": "Navn",
     "mellomnavn": null,
     "etternavn": "Navnersen",
-    "personident": "12345678910"
+    "personident": "12345678910",
+    "opprettetDato":"2025-04-04"
   },
   "deltakerliste": {
     "navn": "Arbeidsforberedende trening hos Muligheter AS",
@@ -11,7 +12,9 @@
     "arrangor": {
       "navn": "Muligheter AS"
     },
-    "forskriftskapittel": 13
+    "forskriftskapittel": 13,
+    "klagerett": false,
+    "oppstart": "FELLES"
   },
   "endringer": [
     {
@@ -58,6 +61,15 @@
         "Innhold 2",
         "Innhold 3"
       ]
+    },
+    {
+      "tittel": "Søknaden er avslått",
+      "aarsak": "Krav for deltakelse ikke oppfylt",
+      "begrunnelseFraNav": "Kan ikke strikke",
+      "vurdering": {
+            "type": "Krav for deltakelse er ikke oppfylt",
+            "begrunnelse": "Kan bare sy"
+      }
     }
   ],
   "avsender": {

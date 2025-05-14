@@ -19,7 +19,12 @@
     {{> amt/sections/header}}
     <main>
         <h1>Endring: {{this.sidetittel}}</h1>
-        <p>Du ble meldt på arbeidsmarkedstiltaket {{this.ingressnavn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon. </p>
+        {{#eq deltakerliste.oppstart "LOPENDE"}}
+            <p>Du ble meldt på arbeidsmarkedstiltaket {{this.ingressnavn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon.</p>
+        {{/eq}}
+        {{#eq deltakerliste.oppstart "FELLES"}}
+            <p>Du ble søkt inn på arbeidsmarkedstiltaket: {{this.ingressnavn}} den {{iso_to_long_date this.deltaker.opprettetDato}}, og deltakelsen er nå endret.</p>
+        {{/eq}}
         {{#each endringer}}
             <section>
                 <h2>{{this.tittel}}</h2>
@@ -40,6 +45,15 @@
                 {{/if}}
                 {{#if this.begrunnelseFraNav}}
                     <p>NAVs begrunnelse: {{this.begrunnelseFraNav}}</p>
+                {{/if}}
+                {{#if this.vurdering}}
+                    <div class="forslag">
+                        <p><b>Vurdering fra arrangør</b></p>
+                        <p>{{this.vurdering.type}}</p>
+                        {{#if this.vurdering.begrunnelse}}
+                            <p class="fritekst">Begrunnelse: {{this.vurdering.begrunnelse}}</p>
+                        {{/if}}
+                    </div>
                 {{/if}}
                 {{#if this.forslagFraArrangor}}
                     <div class="forslag">
@@ -85,10 +99,16 @@
 
         {{> amt/sections/dette-er-et-vedtak}}
 
-        <section>
-            <h2>Du har rett til å klage</h2>
-            <p>Du kan klage hvis du er uenig i endringer på deltakelsen. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
-        </section>
+        {{#if deltakerliste.klagerett}}
+            <section>
+                <h2>Du har rett til å klage</h2>
+                <p>Du kan klage hvis du er uenig i endringer på deltakelsen. Fristen for å klage er seks uker etter du mottok informasjonen. Les mer om retten til å klage på <a href="https://www.nav.no/klage">nav.no/klage</a></p>
+            </section>
+        {{/if}}
+
+        {{#unless deltakerliste.klagerett}}
+            {{> amt/sections/unntak-fra-klagerett}}
+        {{/unless}}
 
         {{> amt/sections/sporsmal}}
 
