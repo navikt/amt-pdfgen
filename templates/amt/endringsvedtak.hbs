@@ -65,6 +65,9 @@
                         {{#if this.forslagFraArrangor.harDeltatt}}
                             <p>Har personen deltatt? {{this.forslagFraArrangor.harDeltatt}}</p>
                         {{/if}}
+                        {{#if this.forslagFraArrangor.harFullfort}}
+                            <p>Er kurset fullført? {{this.forslagFraArrangor.harFullfort}}</p>
+                        {{/if}}
                         {{#if this.forslagFraArrangor.startdato}}
                             <p>Ny oppstartsdato: {{iso_to_nor_date this.forslagFraArrangor.startdato}}</p>
                         {{/if}}
@@ -74,7 +77,9 @@
                         {{#if this.forslagFraArrangor.deltakelsesmengdeTekst}}
                             <p>Ny deltakelsesmengde: {{this.forslagFraArrangor.deltakelsesmengdeTekst}}</p>
                         {{/if}}
-                        <p class="fritekst">Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
+                        {{#if this.forslagFraArrangor.begrunnelseFraArrangor}}
+                            <p class="fritekst">Begrunnelse: {{this.forslagFraArrangor.begrunnelseFraArrangor}}</p>
+                        {{/if}}
                     </div>
                 {{/if}}
                 {{#if this.bakgrunnsinformasjon}}

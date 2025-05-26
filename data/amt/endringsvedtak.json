@@ -47,6 +47,7 @@
         "type": "Avslutt deltakelse",
         "aarsak": "Møter ikke opp",
         "harDeltatt": "Nei",
+        "harFullfort": "Nei",
         "begrunnelseFraArrangor": "Deltakeren møter ikke opp"
       }
     },
