@@ -47,6 +47,20 @@
         "type": "Avslutt deltakelse",
         "aarsak": "Møter ikke opp",
         "harDeltatt": "Nei",
+        "harFullfort": "Nei",
+        "begrunnelseFraArrangor": "Deltakeren møter ikke opp"
+      }
+    },
+    {
+      "tittel": "Ny sluddato er 25.mai 2025",
+      "aarsak": null,
+      "harDeltatt": "Ja",
+      "harFullfort": "Ja",
+      "forslagFraArrangor": {
+        "type": "Avslutt deltakelse",
+        "aarsak": "Møter ikke opp",
+        "harDeltatt": "Nei",
+        "harFullfort": "Nei",
         "begrunnelseFraArrangor": "Deltakeren møter ikke opp"
       }
     },
