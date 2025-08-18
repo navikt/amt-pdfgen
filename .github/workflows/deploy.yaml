@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: docker-build-push
         uses: nais/docker-build-push@v0
         id: docker-build-push
@@ -37,7 +37,7 @@ jobs:
       id-token: "write"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Deploy application
         uses: nais/deploy/actions/deploy@v2
         env:
@@ -54,7 +54,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Deploy application
         uses: nais/deploy/actions/deploy@v2
         env:
