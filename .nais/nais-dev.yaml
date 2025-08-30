@@ -23,15 +23,13 @@ spec:
     failureThreshold: 45
     periodSeconds: 5
   replicas:
-    min: 2
-    max: 3
-    cpuThresholdPercentage: 75
+    disableAutoScaling: true
+    min: 1
   resources:
-    limits:
-      cpu: "1"
-      memory: 2048Mi
     requests:
-      cpu: 300m
+      cpu: 10m
+      memory: 256Mi
+    limits:
       memory: 1024Mi
   accessPolicy:
     inbound:
