@@ -13,15 +13,10 @@ spec:
     path: /internal/prometheus
   readiness:
     path: /internal/is_alive
-    initialDelay: 20
+    initialDelay: 30
   liveness:
     path: /internal/is_alive
-    initialDelay: 20
-  startup:
-    path: /internal/is_alive
     initialDelay: 30
-    failureThreshold: 45
-    periodSeconds: 5
   replicas:
     min: 2
     max: 4
