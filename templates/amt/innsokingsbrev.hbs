@@ -33,27 +33,40 @@
         <section>
             <h2>Om kurset</h2>
             <p>
-                Kursets oppstartsdato: {{deltakerliste.startdato}}
-                <br />
-                Sluttdato: {{deltakerliste.sluttdato}}
-            </p>
-            <br/>
-            <p>
                 Når det nærmer seg oppstart av kurset, vil Nav gjøre en vurdering av om du oppfyller kravene for å delta. Du får svar på søknaden etter dette. Hvis du oppfyller kravene, vil du bli tildelt en plass eller satt på venteliste. Dersom kravene til kurset ikke er oppfylt, vil du få avslag på søknaden.
             </p>
             {{#not_eq deltakerliste.tiltakskode "JOBBKLUBB"}}
                 <br/>
                 <p>
-                   For å avgjøre hvem som skal få plass, kan Nav be om hjelp til vurdering fra arrangøren av kurset. Arrangør eller Nav vil kontakte deg hvis det er behov for et møte.
+                    For å avgjøre hvem som skal få plass, kan Nav be om hjelp til vurdering fra arrangøren av kurset. Arrangør eller Nav vil kontakte deg hvis det er behov for et møte.
                 </p>
             {{/not_eq}}
+
+            {{#if deltakerliste.startdato}}
+                <br/>
+                <p>
+                    {{#if deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}, og slutter {{iso_to_long_date deltakerliste.sluttdato}}.
+                    {{/if}}
+                    {{#unless deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}.
+                    {{/unless}}
+                </p>
+            {{/if}}
+
+            {{#if deltakerliste.oppmoteSted}}
+                <br/>
+                <p>
+                    Du kan møte opp her: {{deltakerliste.oppmoteSted}}.
+                </p>
+            {{/if}}
         </section>
 
         <section>
             <h2>Dette deles med arrangøren</h2>
             <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
             <ul>
-                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
+                <li>Navn og kontaktinformasjonen til Nav-veilederen din</li>
                 <li>Navn og fødselsnummer</li>
                 <li>Telefonnummer og e-postadresse</li>
             </ul>
