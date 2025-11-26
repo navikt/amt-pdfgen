@@ -20,7 +20,7 @@
     <main>
         <h1>Endring: {{this.sidetittel}}</h1>
         {{#eq deltakerliste.oppstart "LOPENDE"}}
-            <p>Du ble meldt på arbeidsmarkedstiltaket {{this.ingressnavn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og NAV ser samme informasjon.</p>
+            <p>Du ble meldt på arbeidsmarkedstiltaket {{this.ingressnavn}} {{iso_to_long_date this.forsteVedtakFattet}}, og deltakelsen er nå endret. Du, arrangør og Nav ser samme informasjon.</p>
         {{/eq}}
         {{#eq deltakerliste.oppstart "FELLES"}}
             <p>Du ble søkt inn på arbeidsmarkedstiltaket: {{this.ingressnavn}} den {{iso_to_long_date this.deltaker.opprettetDato}}, og deltakelsen er nå endret.</p>
@@ -44,7 +44,7 @@
                     <p>{{this.sluttdato}}</p>
                 {{/if}}
                 {{#if this.begrunnelseFraNav}}
-                    <p>NAVs begrunnelse: {{this.begrunnelseFraNav}}</p>
+                    <p>Nav sin begrunnelse: {{this.begrunnelseFraNav}}</p>
                 {{/if}}
                 {{#if this.harDeltatt}}
                     <p>Har personen deltatt? {{this.harDeltatt}}</p>
