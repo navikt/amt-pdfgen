@@ -22,16 +22,25 @@
             <h1>{{this.deltakerliste.tittelNavn}}</h1>
             <p>
                 Du har fått plass på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}}.
-                Arrangøren tar kontakt med deg for å avtale oppstart.
+                {{#if deltakerliste.harKursetStartet}}
+                    Nav eller arrangøren tar kontakt med deg for å avtale når du skal begynne.
+                {{/if}}
             </p>
         </section>
         <section>
             <h2>Om kurset</h2>
-            <p>
-                Kursets oppstartsdato: {{deltakerliste.startdato}}
-                <br />
-                Sluttdato: {{deltakerliste.sluttdato}}
-            </p>
+            {{#if deltakerliste.startdato}}
+                <p>
+                    {{#if deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}, og slutter {{iso_to_long_date deltakerliste.sluttdato}}.
+                    {{/if}}
+                    {{#unless deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}.
+                    {{/unless}}
+                </p>
+            {{/if}}
+
+            {{> amt/sections/oppmote-sted }}
         </section>
 
         {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
@@ -53,9 +62,9 @@
 
         <section>
             <h2>Dette deles med arrangøren</h2>
-            <p>NAV samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av NAV.</p>
+            <p>Nav samarbeider med {{deltakerliste.arrangor.navn}}. Arrangøren behandler opplysninger på vegne av Nav.</p>
             <ul>
-                <li>Navn og kontaktinformasjonen til NAV-veilederen din</li>
+                <li>Navn og kontaktinformasjonen til Nav-veilederen din</li>
                 <li>Navn og fødselsnummer</li>
                 <li>Telefonnummer og e-postadresse</li>
             </ul>

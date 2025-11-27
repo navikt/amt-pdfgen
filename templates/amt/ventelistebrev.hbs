@@ -23,13 +23,27 @@
        <section>
            <h2>Du er satt på venteliste</h2>
            <p>
-               Dersom det åpner seg ledig plass, vil {{this.deltakerliste.arrangor.navn}} ta kontakt med deg for å avtale oppstart.
+               Hvis det blir en ledig plass, vil Nav eller arrangøren ta kontakt med deg for å avtale når du skal begynne.
+
+                {{#if this.deltakerliste.startdato}}
+                    <br />
+                    <br />
+                    Ordinær oppstart er {{iso_to_long_date this.deltakerliste.startdato}}, men ledige plasser kan dukke opp etter dette. Ved ledig plass ber vi om at du er tilgjengelig på kort varsel.
+                    {{#if this.deltakerliste.sluttdato}}
+                        Kurset slutter {{iso_to_long_date this.deltakerliste.sluttdato}}.
+                    {{/if}}
+                {{/if}}
+
+               {{#if this.deltakerliste.oppmoteSted}}
+                   <br />
+                   <br />
+                   Hvis du får plass skal du møte opp her: {{this.deltakerliste.oppmoteSted}}.
+               {{/if}}
+
                <br />
                <br />
-               Ordinær oppstart er {{iso_to_long_date this.deltakerliste.startdato}}, men ledige plasser kan dukke opp etter dette.  Ved ledig plass ber vi om at du er tilgjengelig på kort varsel.
-               <br />
-               <br />
-               Skulle du ikke få plass, vil søknaden avslås.</p>
+               Hvis du ikke får plass, vil søknaden avslås.
+           </p>
         </section>
         {{> amt/sections/sporsmal}}
 

@@ -12,11 +12,13 @@
     "arrangor": {
       "navn": "Muligheter AS"
     },
-    "startdato": "2025-05-04"
+    "startdato": "2025-05-04",
+    "sluttdato": "2026-05-04",
+    "oppmoteSted": "Dronning Frederikkes gate 66. Gå rundt hjørnet til inngang B2. Oppmøte første dagen er klokken 09:30"
   },
   "avsender": {
     "navn": "Veileder Veiledersen",
-    "enhet": "NAV Fyrstikkaleen"
+    "enhet": "Nav Fyrstikkaleen"
   },
   "opprettetDato": "2025-05-06"
 }
