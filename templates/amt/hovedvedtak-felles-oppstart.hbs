@@ -40,12 +40,7 @@
                 </p>
             {{/if}}
 
-            {{#if deltakerliste.oppmoteSted}}
-                <br/>
-                <p>
-                    Du kan møte opp her: {{deltakerliste.oppmoteSted}}.
-                </p>
-            {{/if}}
+            {{> amt/sections/oppmote-sted }}
         </section>
 
         {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
