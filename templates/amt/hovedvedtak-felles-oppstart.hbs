@@ -22,7 +22,9 @@
             <h1>{{this.deltakerliste.tittelNavn}}</h1>
             <p>
                 Du har fått plass på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}}.
-                Nav eller arrangøren tar kontakt med deg for å avtale når du skal begynne.
+                {{#unless deltakerliste.startdato}}
+                    Nav eller arrangøren tar kontakt med deg for å avtale når du skal begynne.
+                {{/unless}}
             </p>
         </section>
         <section>
