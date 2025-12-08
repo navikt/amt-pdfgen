@@ -31,3 +31,6 @@ spec:
     inbound:
       rules:
         - application: amt-distribusjon
+  env:
+    - name: JDK_JAVA_OPTIONS
+      value: "-XX:MaxRAMPercentage=60.0"

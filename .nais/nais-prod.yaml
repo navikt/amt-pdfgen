@@ -22,7 +22,7 @@ spec:
     max: 4
     scalingStrategy:
       cpu:
-        thresholdPercentage: 500
+        thresholdPercentage: 200
   resources:
     requests:
       cpu: 50m
@@ -33,3 +33,6 @@ spec:
     inbound:
       rules:
         - application: amt-distribusjon
+  env:
+    - name: JDK_JAVA_OPTIONS
+      value: "-XX:MaxRAMPercentage=60.0"
