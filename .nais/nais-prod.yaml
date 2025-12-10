@@ -25,14 +25,14 @@ spec:
         thresholdPercentage: 200
   resources:
     requests:
-      cpu: 50m
+      cpu: 20m
       memory: 512Mi
     limits:
-      memory: 2048Mi
+      memory: 1024Mi
   accessPolicy:
     inbound:
       rules:
         - application: amt-distribusjon
   env:
     - name: JDK_JAVA_OPTIONS
-      value: "-XX:MaxRAMPercentage=60.0"
+      value: "-XX:MaxRAMPercentage=70.0"
