@@ -15,9 +15,21 @@ jobs:
       security-events: "write"
     name: Test, build and push
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+          cache: 'gradle'
+
+      - name: Run tests
+        run: ./gradlew check --no-daemon
+
       - name: docker-build-push
         uses: nais/docker-build-push@v0
         id: docker-build-push
@@ -26,6 +38,7 @@ jobs:
           tag: ${{ github.sha }}
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
@@ -38,6 +51,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
       - name: Deploy application
         uses: nais/deploy/actions/deploy@v2
         env:
@@ -55,6 +69,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
       - name: Deploy application
         uses: nais/deploy/actions/deploy@v2
         env:
