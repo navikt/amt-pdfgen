@@ -1,8 +1,10 @@
 <section>
     <h2>Dette er innholdet</h2>
-    <p>{{deltakerliste.ledetekst}}</p>
-    {{#if deltaker.innholdBeskrivelse}}
+    {{#if deltakerliste.ledetekst}}
+        <p>{{deltakerliste.ledetekst}}</p>
         <br />
+    {{/if}}
+    {{#if deltaker.innholdBeskrivelse}}
         <p class="fritekst">{{deltaker.innholdBeskrivelse}}</p>
     {{/if}}
 

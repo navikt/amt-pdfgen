@@ -43,13 +43,7 @@
             {{> amt/sections/oppmote-sted }}
         </section>
 
-        {{#eq deltakerliste.tiltakskode "JOBBKLUBB"}}
-            {{> amt/sections/innhold-med-beskrivelsetekst}}
-        {{/eq}}
-
-        {{#eq deltakerliste.tiltakskode "DIGITALT_OPPFOLGINGSTILTAK"}}
-            {{> amt/sections/innhold-med-beskrivelsetekst}}
-        {{/eq}}
+        {{> amt/sections/innhold-med-beskrivelsetekst}}
 
         {{> amt/sections/dette-er-et-vedtak}}
 
