@@ -2,10 +2,12 @@ plugins {
     kotlin("jvm") version "2.3.0"
 }
 
+val jsoupVersion = "1.22.1"
 val pdfgenCoreVersion = "1.1.67"
 val kotestVersion = "6.0.7"
 val mockkVersion = "1.14.7"
 val jacksonModuleKotlinVersion = "2.20.1"
+val amtLibVersion = "1.2026.01.17_11.13-974d0f4a4aba"
 
 repositories {
     mavenCentral()
@@ -13,11 +15,14 @@ repositories {
 }
 
 dependencies {
+    testImplementation("no.nav.amt.lib:models:$amtLibVersion")
+    testImplementation("org.jsoup:jsoup:$jsoupVersion")
     testImplementation("no.nav.pdfgen:pdfgen-core:$pdfgenCoreVersion")
     testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-table-jvm:$kotestVersion")
     testImplementation("io.mockk:mockk-jvm:$mockkVersion")
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonModuleKotlinVersion")
     testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonModuleKotlinVersion")
 }
 
