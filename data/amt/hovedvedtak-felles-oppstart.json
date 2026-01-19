@@ -3,7 +3,8 @@
         "fornavn": "Navn",
         "mellomnavn": null,
         "etternavn": "Navnersen",
-        "personident": "12345678910"
+        "personident": "12345678910",
+        "innholdBeskrivelse": "her er det mye rart"
     },
     "deltakerliste": {
         "tiltakskode": "JOBBKLUBB",
