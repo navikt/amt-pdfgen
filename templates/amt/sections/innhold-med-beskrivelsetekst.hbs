@@ -1,9 +1,21 @@
-<section>
-    <h2>Dette er innholdet</h2>
-    <p>{{deltakerliste.ledetekst}}</p>
-    {{#if deltaker.innholdBeskrivelse}}
-        <br />
-        <p class="fritekst">{{deltaker.innholdBeskrivelse}}</p>
-    {{/if}}
+{{#if deltakerliste.ledetekst}}
+    <section>
+        <h2>Dette er innholdet</h2>
 
-</section>
+        <p>{{deltakerliste.ledetekst}}</p>
+
+        {{#if deltaker.innholdBeskrivelse}}
+            <br />
+            <p class="fritekst">{{deltaker.innholdBeskrivelse}}</p>
+        {{/if}}
+    </section>
+{{/if}}
+
+{{#unless deltakerliste.ledetekst}}
+    {{#if deltaker.innholdBeskrivelse}}
+        <section>
+            <h2>Dette er innholdet</h2>
+            <p class="fritekst">{{deltaker.innholdBeskrivelse}}</p>
+        </section>
+    {{/if}}
+{{/unless}}
