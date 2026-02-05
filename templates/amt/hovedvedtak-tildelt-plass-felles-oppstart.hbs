@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Vedtak om tiltak"/>
+    <meta name="author" content="amt-pdfgen"/>
+    <meta name="subject" content="Vedtak"/>
+
+    {{#block 'amt/style' }}
+    {{/block}}
+
+    <title>Vedtak om tiltaksdeltakelse</title>
+
+</head>
+<body>
+    <div id="footer">
+        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+    </div>
+    {{> amt/sections/header}}
+    <main>
+        <section>
+            <h1>{{this.deltakerliste.tittelNavn}}</h1>
+            <p>
+                Du har fått plass på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}}.
+                {{#if deltakerliste.harKursetStartet}}
+                    Nav eller arrangøren tar kontakt med deg for å avtale når du skal begynne.
+                {{/if}}
+            </p>
+        </section>
+        <section>
+            <h2>Om kurset</h2>
+            {{#if deltakerliste.startdato}}
+                <p>
+                    {{#if deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}, og slutter {{iso_to_long_date deltakerliste.sluttdato}}.
+                    {{/if}}
+                    {{#unless deltakerliste.sluttdato}}
+                        Kurset starter {{iso_to_long_date deltakerliste.startdato}}.
+                    {{/unless}}
+                </p>
+            {{/if}}
+
+            {{> amt/sections/oppmote-sted }}
+        </section>
+
+        {{> amt/sections/innhold}}
+
+        {{> amt/sections/dette-er-et-vedtak}}
+
+        {{> amt/sections/klagerett}}
+
+        {{> amt/sections/dette-deles-med-arrangor}}
+
+        {{> amt/sections/sporsmal}}
+
+        {{> amt/sections/avsender}}
+    </main>
+</body>
+</html>
