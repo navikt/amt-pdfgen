@@ -3,9 +3,10 @@
         <h2>Dette er innholdet</h2>
         {{#if deltaker.innhold.ledetekst}}
             <p>{{deltaker.innhold.ledetekst}}</p>
-        {{/if}}
-        {{#if deltaker.innhold.fritekstBeskrivelse}}
             <br />
+        {{/if}}
+
+        {{#if deltaker.innhold.fritekstBeskrivelse}}
             <p class="fritekst">{{deltaker.innhold.fritekstBeskrivelse}}</p>
         {{/if}}
 
