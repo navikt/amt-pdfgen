@@ -1,3 +1,5 @@
+<!--Skal slettes og isteden bruke hovedvedtak-individuell-oppfolging-->
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -18,18 +20,7 @@
     </div>
     {{> amt/sections/header}}
     <main>
-        <section>
-            <h1>{{this.sidetittel}}</h1>
-            <p>
-                Du er meldt på arbeidsmarkedstiltaket: {{this.ingressnavn}}.
-                {{deltakerliste.arrangor.navn}} avgjør om du tilbys plass. Ved tilbud om plass vil du bli ansatt.
-                Når arrangøren har en ledig plass så vil de ta kontakt med deg for å avtale når du skal begynne.
-            </p>
-
-            {{> amt/sections/oppmote-sted }}
-
-            {{> amt/sections/begrunnelse-fra-nav}}
-        </section>
+        {{> amt/sections/overskrift-med-ingress-vta}}
 
         {{> amt/sections/innhold}}
 

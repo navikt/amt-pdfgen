@@ -18,15 +18,10 @@
     </div>
     {{> amt/sections/header}}
     <main>
-        <section>
-            <h1>{{this.deltakerliste.tittelNavn}}</h1>
-            <p>Du har fått plass på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}}.</p>
-        </section>
-        <section>
-            <h2>Om kurset</h2>
-            <p>Når arrangøren har en ledig plass, så vil Nav eller arrangøren ta kontakt med deg for å avtale oppstart.</p>
-            {{> amt/sections/oppmote-sted }}
-        </section>
+
+        {{> amt/sections/overskrift-med-ingress-kurstiltak}}
+
+        {{> amt/sections/om-kurset }}
 
         {{> amt/sections/innhold}}
 

@@ -13,10 +13,10 @@ import no.nav.amt.pdfgen.TestUtils.fixedDate
 import no.nav.amt.pdfgen.TestUtils.render
 import org.jsoup.nodes.Document
 
-class HovedvedtakTest :
+class HovedvedtakIndividuellOppfolgingTest :
     DescribeSpec({
 
-        describe("Hovedvedtak PDF") {
+        describe("Hovedvedtak Individuell oppfølging PDF") {
             it("VARIG_TILRETTELAGT_ARBEID_SKJERMET") {
                 val innhold = InnholdPdfDto(
                     valgteInnholdselementer = emptyList(),
@@ -41,9 +41,15 @@ class HovedvedtakTest :
                     fritekstBeskrivelse = "Dette er en beskrivelse av annet for VTA",
                     ledetekst = ""
                 )
+                val deltaker = baseDeltaker(
+                    innhold,
+                    bakgrunnsinfo = "",
+                    deltakelsesmengde = ""
+                )
                 val doc = renderHovedvedtak(baseDto(
                     Tiltakskode.GRUPPE_ARBEIDSMARKEDSOPPLAERING,
-                    innhold
+                    innhold,
+                    deltaker
                 ))
                 doc.text() shouldContain "sidetittel: GRUPPE_ARBEIDSMARKEDSOPPLAERING"
                 doc.text() shouldContain "Du er meldt på arbeidsmarkedstiltaket"
@@ -51,8 +57,8 @@ class HovedvedtakTest :
                 doc.text() shouldContain innhold.fritekstBeskrivelse.shouldNotBeNull()
                 doc.getElementById("ledetekst").shouldBeNull()
 
-                doc.text() shouldNotContain "Bakgrunnsinfo"
-                doc.text() shouldNotContain "Deltakelsesmengde"
+                doc.getElementById("bakgrunnsinfo").shouldBeNull()
+                doc.getElementById("deltakelsesmengde").shouldBeNull()
 
 
             }
@@ -106,17 +112,21 @@ class HovedvedtakTest :
         }
     }) {
     companion object {
-        private fun renderHovedvedtak(payload: HovedvedtakPdfDto): Document = render("hovedvedtak", payload)
+        private fun renderHovedvedtak(payload: HovedvedtakPdfDto): Document = render("hovedvedtak-individuell-oppfolging", payload)
 
-        private fun baseDeltaker(innholdPdfDto: InnholdPdfDto? = null) =
+        private fun baseDeltaker(
+            innholdPdfDto: InnholdPdfDto? = null,
+            bakgrunnsinfo: String = "Bakgrunnsinfo",
+            deltakelsesmengde: String = "deltakelsesmengde"
+        ) =
             HovedvedtakPdfDto.DeltakerDto(
                 fornavn = "Ola",
                 mellomnavn = null,
                 etternavn = "Nordmann",
                 personident = "12345678910",
                 innhold = innholdPdfDto,
-                bakgrunnsinformasjon = " String",
-                deltakelsesmengdeTekst = " String",
+                bakgrunnsinformasjon = bakgrunnsinfo,
+                deltakelsesmengdeTekst = deltakelsesmengde,
                 adresseDelesMedArrangor = false,
             )
 
@@ -137,8 +147,12 @@ class HovedvedtakTest :
                 enhet = "Nav Oslo",
             )
 
-        private fun baseDto(tiltakskode: Tiltakskode, innholdPdfDto: InnholdPdfDto? = null) = HovedvedtakPdfDto(
-            deltaker = baseDeltaker(innholdPdfDto),
+        private fun baseDto(
+            tiltakskode: Tiltakskode,
+            innholdPdfDto: InnholdPdfDto? = null,
+            deltaker: HovedvedtakPdfDto.DeltakerDto = baseDeltaker(innholdPdfDto)
+        ) = HovedvedtakPdfDto(
+            deltaker = deltaker,
             deltakerliste = baseDeltakerliste(tiltakskode),
             avsender = baseAvsender(),
             vedtaksdato = fixedDate,
