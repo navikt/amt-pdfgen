@@ -23,15 +23,17 @@ import org.jsoup.nodes.Document
 class EndringsvedtakBddTest :
     BehaviorSpec({
 
-        Given("endringsvedtakPdfDto payload") {
-            When("rendering dette-er-et-vedtak") {
+        Given("et endringsvedtak og sub-template dette-er-et-vedtak") {
+            When("vedtaket rendres") {
                 val endringsvedtakPdfDto = baseDto()
                 val doc = renderSection("dette-er-et-vedtak", endringsvedtakPdfDto)
 
-                Then("template skal inneholde heading og body") {
+                Then("vises tittel for vedtaket") {
                     val heading = doc.selectFirst("h2").shouldNotBeNull()
                     heading.text() shouldBe "Dette er et vedtak"
+                }
 
+                And("vises forklarende tekst for vedtaket") {
                     val body = doc.selectFirst("p").shouldNotBeNull()
                     body.text() shouldBe
                         "Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak " +
