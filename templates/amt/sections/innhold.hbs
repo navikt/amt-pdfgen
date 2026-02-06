@@ -2,16 +2,16 @@
     <section>
         <h2>Dette er innholdet</h2>
         {{#if deltaker.innhold.ledetekst}}
-            <p>{{deltaker.innhold.ledetekst}}</p>
+            <p id="ledetekst">{{deltaker.innhold.ledetekst}}</p>
             <br />
         {{/if}}
 
         {{#if deltaker.innhold.fritekstBeskrivelse}}
-            <p class="fritekst">{{deltaker.innhold.fritekstBeskrivelse}}</p>
+            <p class="fritekst" id="fritekst">{{deltaker.innhold.fritekstBeskrivelse}}</p>
         {{/if}}
 
         {{#if deltaker.innhold.valgteInnholdselementer.length}}
-            <ul>
+            <ul id="innholdselementer">
                 {{#each deltaker.innhold.valgteInnholdselementer}}
                     <li class="fritekst">{{this}}</li>
                 {{/each}}

@@ -7,7 +7,7 @@ val pdfgenCoreVersion = "1.1.67"
 val kotestVersion = "6.0.7"
 val mockkVersion = "1.14.7"
 val jacksonModuleKotlinVersion = "2.20.1"
-val amtLibVersion = "1.2026.01.17_11.13-974d0f4a4aba"
+val amtLibVersion = "1.2026.02.05_14.55-a3671d1ac660"
 
 repositories {
     mavenCentral()
