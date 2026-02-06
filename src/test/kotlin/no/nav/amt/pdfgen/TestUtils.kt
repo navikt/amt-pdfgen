@@ -16,8 +16,6 @@ import java.time.Year
 import java.time.format.DateTimeFormatter
 
 object TestUtils {
-    private const val TEMPLATE_DIR = "amt"
-
     val fixedDate: LocalDate = LocalDate.of(Year.now().value, 2, 15)
 
     fun LocalDate.toNorwegianShortDate(): String = this.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
@@ -37,16 +35,39 @@ object TestUtils {
         }
     }
 
+    private const val DEFAULT_TEMPLATE_DIR = "amt"
+    private const val SECTIONS_TEMPLATE_DIR = "sections"
+
+    /*
+        PDFGenCore.init(
+            Environment(
+                templateRoot = PDFGenResource(templateRoot),
+            ),
+        )
+*/
+
     fun render(
         templateName: String,
         payload: Any,
+        templateDir: String = DEFAULT_TEMPLATE_DIR,
     ): Document =
         Jsoup.parse(
             createHtml(
                 template = templateName,
-                directoryName = TEMPLATE_DIR,
+                directoryName = templateDir,
                 jsonPayload = objectMapper.valueToTree<JsonNode>(payload),
             ).shouldNotBeNull(),
+        )
+
+    fun renderSection(
+        templateName: String,
+        payload: Any,
+        templateDir: String = SECTIONS_TEMPLATE_DIR,
+    ): Document =
+        render(
+            templateName = templateName,
+            payload = payload,
+            templateDir = templateDir,
         )
 
     fun Document.sectionText(): String = select("section").joinToString(" ") { it.text() }

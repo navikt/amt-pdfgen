@@ -16,7 +16,7 @@
     <div id="footer">
         <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    {{> amt/sections/header}}
+    {{> sections/header}}
     <main>
         <h1>Endring: {{this.sidetittel}}</h1>
         {{#eq deltakerliste.oppstart "LOPENDE"}}
@@ -108,7 +108,7 @@
             </section>
         {{/each}}
 
-        {{> amt/sections/dette-er-et-vedtak}}
+        {{> sections/dette-er-et-vedtak}}
 
         {{#if deltakerliste.klagerett}}
             <section>
@@ -118,12 +118,12 @@
         {{/if}}
 
         {{#unless deltakerliste.klagerett}}
-            {{> amt/sections/unntak-fra-klagerett}}
+            {{> sections/unntak-fra-klagerett}}
         {{/unless}}
 
-        {{> amt/sections/sporsmal}}
+        {{> sections/sporsmal}}
 
-        {{> amt/sections/avsender}}
+        {{> sections/avsender}}
     </main>
 </body>
 </html>

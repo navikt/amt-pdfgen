@@ -15,12 +15,30 @@ import no.nav.amt.lib.models.journalforing.pdf.ForslagDto
 import no.nav.amt.pdfgen.TestUtils.assertSectionText
 import no.nav.amt.pdfgen.TestUtils.fixedDate
 import no.nav.amt.pdfgen.TestUtils.render
+import no.nav.amt.pdfgen.TestUtils.renderSection
 import no.nav.amt.pdfgen.TestUtils.sectionText
 import no.nav.amt.pdfgen.TestUtils.toNorwegianShortDate
 import org.jsoup.nodes.Document
 
 class EndringsvedtakBddTest :
     BehaviorSpec({
+
+        Given("endringsvedtakPdfDto payload") {
+            When("rendering dette-er-et-vedtak") {
+                val endringsvedtakPdfDto = baseDto()
+                val doc = renderSection("dette-er-et-vedtak", endringsvedtakPdfDto)
+
+                Then("template skal inneholde heading og body") {
+                    val heading = doc.selectFirst("h2").shouldNotBeNull()
+                    heading.text() shouldBe "Dette er et vedtak"
+
+                    val body = doc.selectFirst("p").shouldNotBeNull()
+                    body.text() shouldBe
+                        "Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak " +
+                        "kapittel ${endringsvedtakPdfDto.deltakerliste.forskriftskapittel}."
+                }
+            }
+        }
 
         Given("endringsvedtak template") {
 
