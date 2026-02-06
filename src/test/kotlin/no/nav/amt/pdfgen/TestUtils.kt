@@ -38,14 +38,6 @@ object TestUtils {
     private const val DEFAULT_TEMPLATE_DIR = "amt"
     private const val SECTIONS_TEMPLATE_DIR = "sections"
 
-    /*
-        PDFGenCore.init(
-            Environment(
-                templateRoot = PDFGenResource(templateRoot),
-            ),
-        )
-*/
-
     fun render(
         templateName: String,
         payload: Any,
