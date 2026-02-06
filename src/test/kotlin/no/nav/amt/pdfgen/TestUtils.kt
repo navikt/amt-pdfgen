@@ -14,7 +14,6 @@ import org.jsoup.nodes.Document
 import java.time.LocalDate
 import java.time.Year
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 object TestUtils {
     private const val TEMPLATE_DIR = "amt"
@@ -22,8 +21,6 @@ object TestUtils {
     val fixedDate: LocalDate = LocalDate.of(Year.now().value, 2, 15)
 
     fun LocalDate.toNorwegianShortDate(): String = this.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
-
-    fun LocalDate.toNorwegianLongDate(): String = this.format(DateTimeFormatter.ofPattern("d. MMMM yyyy", Locale.forLanguageTag("nb-NO")))
 
     fun String.assertSectionText(
         pattern: String,
