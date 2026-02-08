@@ -47,7 +47,7 @@ class InnholdTest :
 
             }
 
-            it("Tiltak som bare har fritekst og ledetekst - Tiltak som bare har innholdselement annet og bare enkel fritekst") {
+            it("Tiltak som bare har innholdselement annet og fritekst") {
                 val innhold = InnholdPdfDto(
                     valgteInnholdselementer = emptyList(),
                     fritekstBeskrivelse = "dette er en fritekst",
