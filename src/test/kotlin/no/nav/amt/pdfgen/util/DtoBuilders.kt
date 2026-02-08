@@ -1,15 +1,15 @@
-package no.nav.amt.pdfgen
+package no.nav.amt.pdfgen.util
 
 import no.nav.amt.lib.models.hendelse.HendelseDeltaker
 import no.nav.amt.lib.models.journalforing.pdf.EndringDto
 import no.nav.amt.lib.models.journalforing.pdf.EndringsvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.HovedvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.InnholdPdfDto
-import no.nav.amt.pdfgen.TestUtils.fixedDate
+import no.nav.amt.pdfgen.util.RenderUtils.fixedDate
 
 object DtoBuilders {
     fun hovedvedtakDeltaker(
-        innholdPdfDto: InnholdPdfDto? = null,
+        innhold: InnholdPdfDto? = null,
         bakgrunnsinfo: String = "Bakgrunnsinfo",
         deltakelsesmengde: String = "deltakelsesmengde",
     ) = HovedvedtakPdfDto.DeltakerDto(
@@ -17,7 +17,7 @@ object DtoBuilders {
         mellomnavn = null,
         etternavn = "Nordmann",
         personident = "12345678910",
-        innhold = innholdPdfDto,
+        innhold = innhold,
         bakgrunnsinformasjon = bakgrunnsinfo,
         deltakelsesmengdeTekst = deltakelsesmengde,
         adresseDelesMedArrangor = false,

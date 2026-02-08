@@ -12,12 +12,13 @@ import no.nav.amt.lib.models.hendelse.HendelseDeltaker
 import no.nav.amt.lib.models.journalforing.pdf.EndringDto
 import no.nav.amt.lib.models.journalforing.pdf.EndringsvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.ForslagDto
-import no.nav.amt.pdfgen.TestUtils.assertSectionText
-import no.nav.amt.pdfgen.TestUtils.fixedDate
-import no.nav.amt.pdfgen.TestUtils.render
-import no.nav.amt.pdfgen.TestUtils.renderSection
-import no.nav.amt.pdfgen.TestUtils.sectionText
-import no.nav.amt.pdfgen.TestUtils.toNorwegianShortDate
+import no.nav.amt.pdfgen.util.AssertUtils.assertSectionText
+import no.nav.amt.pdfgen.util.DtoBuilders.endringsvedtak
+import no.nav.amt.pdfgen.util.RenderUtils.fixedDate
+import no.nav.amt.pdfgen.util.RenderUtils.render
+import no.nav.amt.pdfgen.util.RenderUtils.renderSection
+import no.nav.amt.pdfgen.util.RenderUtils.sectionText
+import no.nav.amt.pdfgen.util.RenderUtils.toNorwegianShortDate
 import org.jsoup.nodes.Document
 
 class EndringsvedtakBddTest :
@@ -25,7 +26,7 @@ class EndringsvedtakBddTest :
 
         Given("et endringsvedtak og sub-template dette-er-et-vedtak") {
             When("vedtaket rendres") {
-                val endringsvedtakPdfDto = baseDto()
+                val endringsvedtakPdfDto = endringsvedtak()
                 val doc = renderSection("dette-er-et-vedtak", endringsvedtakPdfDto)
 
                 Then("vises tittel for vedtaket") {
@@ -45,7 +46,7 @@ class EndringsvedtakBddTest :
         Given("endringsvedtak template") {
 
             When("rendering document with minimal payload") {
-                val doc = renderEndringsvedtak(baseDto())
+                val doc = renderEndringsvedtak(endringsvedtak())
 
                 Then("skal alle faste seksjoner finnes i dokumentet") {
                     doc.selectFirst("header") shouldNotBe null
@@ -80,7 +81,7 @@ class EndringsvedtakBddTest :
             ) { oppstart, forventetTekst ->
 
                 When("oppstart er $oppstart") {
-                    val doc = renderEndringsvedtak(baseDto(oppstart = oppstart))
+                    val doc = renderEndringsvedtak(endringsvedtak(oppstart = oppstart))
 
                     Then("skal korrekt ingress vises") {
                         doc.text() shouldContain forventetTekst
@@ -96,7 +97,7 @@ class EndringsvedtakBddTest :
             ) { klagerett ->
 
                 When("klagerett er $klagerett") {
-                    val doc = renderEndringsvedtak(baseDto(klagerett = klagerett))
+                    val doc = renderEndringsvedtak(endringsvedtak(klagerett = klagerett))
 
                     Then("skal klageseksjon være ${if (klagerett) "synlig" else "skjult"}") {
                         val finnes =
@@ -132,7 +133,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -172,7 +173,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -217,7 +218,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -264,7 +265,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -288,56 +289,5 @@ class EndringsvedtakBddTest :
     }) {
     companion object {
         private fun renderEndringsvedtak(payload: EndringsvedtakPdfDto): Document = render("endringsvedtak", payload)
-
-        private fun defaultEndring() =
-            EndringDto.EndreDeltakelsesmengde(
-                tittel = "Deltakelsesmengde er endret",
-                begrunnelseFraNav = "Begrunnelse",
-                forslagFraArrangor = null,
-                gyldigFra = fixedDate,
-            )
-
-        private fun baseDeltaker() =
-            EndringsvedtakPdfDto.DeltakerDto(
-                fornavn = "Ola",
-                mellomnavn = null,
-                etternavn = "Nordmann",
-                personident = "12345678910",
-                opprettetDato = fixedDate,
-            )
-
-        private fun baseDeltakerliste(
-            oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype?,
-            klagerett: Boolean,
-        ) = EndringsvedtakPdfDto.DeltakerlisteDto(
-            navn = "Tiltaksliste",
-            ledetekst = "Dette er ledeteksten",
-            arrangor = EndringsvedtakPdfDto.ArrangorDto("Arrangør AS"),
-            forskriftskapittel = 42,
-            oppstart = oppstart,
-            klagerett = klagerett,
-        )
-
-        private fun baseAvsender() =
-            EndringsvedtakPdfDto.AvsenderDto(
-                navn = "Nav Saksbehandler",
-                enhet = "Nav Oslo",
-            )
-
-        private fun baseDto(
-            endringer: List<EndringDto> = listOf(defaultEndring()),
-            oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype? = HendelseDeltaker.Deltakerliste.Oppstartstype.LOPENDE,
-            klagerett: Boolean = true,
-        ) = EndringsvedtakPdfDto(
-            deltaker = baseDeltaker(),
-            deltakerliste = baseDeltakerliste(oppstart, klagerett),
-            endringer = endringer,
-            avsender = baseAvsender(),
-            vedtaksdato = fixedDate,
-            forsteVedtakFattet = fixedDate.minusDays(10),
-            sidetittel = "Endring i tiltak",
-            ingressnavn = "Arbeidsforberedende trening",
-            opprettetDato = fixedDate.minusMonths(1),
-        )
     }
 }

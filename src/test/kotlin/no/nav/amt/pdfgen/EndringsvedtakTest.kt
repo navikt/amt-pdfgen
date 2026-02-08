@@ -8,10 +8,10 @@ import no.nav.amt.lib.models.hendelse.HendelseDeltaker
 import no.nav.amt.lib.models.journalforing.pdf.EndringDto
 import no.nav.amt.lib.models.journalforing.pdf.EndringsvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.ForslagDto
-import no.nav.amt.pdfgen.DtoBuilders.defaultEndring
-import no.nav.amt.pdfgen.DtoBuilders.endringsvedtak
-import no.nav.amt.pdfgen.TestUtils.fixedDate
-import no.nav.amt.pdfgen.TestUtils.render
+import no.nav.amt.pdfgen.util.DtoBuilders.defaultEndring
+import no.nav.amt.pdfgen.util.DtoBuilders.endringsvedtak
+import no.nav.amt.pdfgen.util.RenderUtils.fixedDate
+import no.nav.amt.pdfgen.util.RenderUtils.render
 import org.jsoup.nodes.Document
 
 class EndringsvedtakTest :

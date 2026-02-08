@@ -6,8 +6,9 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import no.nav.amt.lib.models.journalforing.pdf.InnholdPdfDto
-import no.nav.amt.pdfgen.DtoBuilders.hovedvedtakDeltaker
-import no.nav.amt.pdfgen.TestUtils.renderSection
+import no.nav.amt.pdfgen.util.DeltakerWrapper
+import no.nav.amt.pdfgen.util.DtoBuilders.hovedvedtakDeltaker
+import no.nav.amt.pdfgen.util.RenderUtils.renderSection
 import org.jsoup.nodes.Document
 
 class InnholdTest :
@@ -73,7 +74,7 @@ class InnholdTest :
     }) {
     companion object {
         private fun renderInnhold(innholdDto: InnholdPdfDto): Document {
-            val deltaker = hovedvedtakDeltaker(innholdPdfDto = innholdDto)
+            val deltaker = hovedvedtakDeltaker(innhold = innholdDto)
             return renderSection("innhold", DeltakerWrapper(deltaker))
         }
     }
