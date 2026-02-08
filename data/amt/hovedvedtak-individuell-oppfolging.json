@@ -3,14 +3,15 @@
         "fornavn": "Navn",
         "mellomnavn": null,
         "etternavn": "Navnersen",
-        "innhold": [
-            "Arbeidspraksis",
-            "Hjelp til å tilpasse arbeidsoppgaver og arbeidsplassen",
-            "Karriereveiledning",
-            "Kartlegge hvordan helsen din påvirker muligheten din til å jobbe",
-            "Oppfølging på arbeidsplassen",
-            "Annet: Dette er en valgfri beskrivelse\nNy linje."
-        ],
+        "innhold": {
+            "fritekstBeskrivelse": "",
+            "valgteInnholdselementer": ["Arbeidspraksis",
+                "Hjelp til å tilpasse arbeidsoppgaver og arbeidsplassen",
+                "Karriereveiledning",
+                "Kartlegge hvordan helsen din påvirker muligheten din til å jobbe",
+                "Oppfølging på arbeidsplassen"],
+            "ledetekst": "Du får oppfølging og støtte til jobbsøkingen. På kurset får du karriereveiledning, hjelp til å orientere deg på\narbeidsmarkedet, skrive CV og jobbsøknad og trene på jobbintervju."
+        },
         "bakgrunnsinformasjon": "3 barn under 5 år kan påvirke deltakelsen. \nNy linje.",
         "deltakelsesmengdeTekst": "70 % fordelt på 3 dager i uka",
         "personident": "12345678910",
@@ -30,8 +31,8 @@
         "navn": "Veileder Veiledersen",
         "enhet": "Nav Fyrstikkaleen"
     },
-    "sidetittel": "Varig tilrettelagt arbeid hos Muligheter AS",
-    "ingressnavn": "Varig tilrettelagt arbeid hos Muligheter AS",
+    "sidetittel": "Arbeidsforberedende trening hos Muligheter AS",
+    "ingressnavn": "Arbeidsforberedende trening hos Muligheter AS",
     "opprettetDato": "2024-04-30",
     "vedtaksdato": "2024-04-30",
     "begrunnelseFraNav": "Det er riktig å delta på dette tiltaket likevel"
