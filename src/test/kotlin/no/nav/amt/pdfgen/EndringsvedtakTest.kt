@@ -240,7 +240,6 @@ class EndringsvedtakTest :
             )
 
         private fun baseDeltakerliste(
-            oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype?,
             klagerett: Boolean,
             pameldingstype: GjennomforingPameldingType
         ) = EndringsvedtakPdfDto.DeltakerlisteDto(
@@ -248,8 +247,6 @@ class EndringsvedtakTest :
             ledetekst = "Dette er ledeteksten",
             arrangor = EndringsvedtakPdfDto.ArrangorDto("Arrangør AS"),
             forskriftskapittel = 42,
-            oppstart = oppstart,
-            klagerett = klagerett,
             harKlagerett = klagerett,
             pameldingstype = pameldingstype
         )
@@ -262,12 +259,11 @@ class EndringsvedtakTest :
 
         private fun baseDto(
             endringer: List<EndringDto> = listOf(defaultEndring()),
-            oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype? = HendelseDeltaker.Deltakerliste.Oppstartstype.LOPENDE,
             pameldingType: GjennomforingPameldingType = GjennomforingPameldingType.DIREKTE_VEDTAK,
             klagerett: Boolean = true,
         ) = EndringsvedtakPdfDto(
             deltaker = baseDeltaker(),
-            deltakerliste = baseDeltakerliste(oppstart, klagerett, pameldingType),
+            deltakerliste = baseDeltakerliste(klagerett, pameldingType),
             endringer = endringer,
             avsender = baseAvsender(),
             vedtaksdato = fixedDate,
