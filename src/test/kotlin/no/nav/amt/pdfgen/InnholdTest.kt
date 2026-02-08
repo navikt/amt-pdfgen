@@ -15,7 +15,7 @@ class InnholdTest :
     DescribeSpec({
 
         describe("Innhold template") {
-            it("Digitalt jobbsøkerkurs - Kun ledetekst") {
+            it("viser ledetekst og fritekst") {
                 val innhold =
                     InnholdPdfDto(
                         valgteInnholdselementer = emptyList(),
