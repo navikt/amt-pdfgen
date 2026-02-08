@@ -28,10 +28,10 @@ class InnholdTest :
                 paraList.size shouldBe 2
 
                 val innholdElement = paraList.first().shouldNotBeNull()
-                innholdElement.text() shouldBe innhold.ledetekst.shouldNotBeNull()
+                innholdElement.text() shouldBe innhold.ledetekst
 
                 val fritekstElement = paraList.last().shouldNotBeNull()
-                fritekstElement.text() shouldBe innhold.fritekstBeskrivelse.shouldNotBeNull()
+                fritekstElement.text() shouldBe innhold.fritekstBeskrivelse
             }
 
             it("Tiltak som alltid er individuelle - Innholdsliste og ledetekst") {
