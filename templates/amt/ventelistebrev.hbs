@@ -16,7 +16,7 @@
     <div id="footer">
         <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    {{> amt/sections/header}}
+    {{> sections/header}}
     <main>
         <h1>Endring: {{this.deltakerliste.tittelNavn}}</h1>
        <p>Du ble søkt inn på arbeidsmarkedstiltaket: {{this.deltakerliste.ingressNavn}} den {{iso_to_long_date this.deltaker.opprettetDato}}, og deltakelsen er nå endret. </p>
@@ -45,9 +45,9 @@
                Hvis du ikke får plass, vil søknaden avslås.
            </p>
         </section>
-        {{> amt/sections/sporsmal}}
+        {{> sections/sporsmal}}
 
-        {{> amt/sections/avsender}}
+        {{> sections/avsender}}
     </main>
 </body>
 </html>
