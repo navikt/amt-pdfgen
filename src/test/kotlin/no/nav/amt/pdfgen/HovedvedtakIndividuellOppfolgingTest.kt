@@ -9,7 +9,8 @@ import io.kotest.matchers.string.shouldNotContain
 import no.nav.amt.lib.models.deltakerliste.tiltakstype.Tiltakskode
 import no.nav.amt.lib.models.journalforing.pdf.HovedvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.InnholdPdfDto
-import no.nav.amt.pdfgen.util.RenderUtils.fixedDate
+import no.nav.amt.pdfgen.util.DtoBuilders.hovedvedtak
+import no.nav.amt.pdfgen.util.DtoBuilders.hovedvedtakDeltaker
 import no.nav.amt.pdfgen.util.RenderUtils.render
 import org.jsoup.nodes.Document
 
@@ -26,7 +27,7 @@ class HovedvedtakIndividuellOppfolgingTest :
                     )
                 val doc =
                     renderHovedvedtak(
-                        baseDto(
+                        hovedvedtak(
                             Tiltakskode.VARIG_TILRETTELAGT_ARBEID_SKJERMET,
                             innhold,
                         ),
@@ -46,14 +47,14 @@ class HovedvedtakIndividuellOppfolgingTest :
                         ledetekst = "",
                     )
                 val deltaker =
-                    baseDeltaker(
+                    hovedvedtakDeltaker(
                         innhold,
                         bakgrunnsinfo = "",
                         deltakelsesmengde = "",
                     )
                 val doc =
                     renderHovedvedtak(
-                        baseDto(
+                        hovedvedtak(
                             Tiltakskode.GRUPPE_ARBEIDSMARKEDSOPPLAERING,
                             innhold,
                             deltaker,
@@ -82,7 +83,7 @@ class HovedvedtakIndividuellOppfolgingTest :
                     )
                 val doc =
                     renderHovedvedtak(
-                        baseDto(
+                        hovedvedtak(
                             Tiltakskode.AVKLARING,
                             innhold,
                         ),
@@ -106,13 +107,13 @@ class HovedvedtakIndividuellOppfolgingTest :
 
             describe("Klagerett") {
                 it("viser klagerett på tiltakstyper som alltid har klagerett") {
-                    val doc = renderHovedvedtak(baseDto(Tiltakskode.JOBBKLUBB))
+                    val doc = renderHovedvedtak(hovedvedtak(Tiltakskode.JOBBKLUBB))
                     doc.text() shouldContain "Du har rett til å klage"
                     doc.text() shouldNotContain "Unntak fra klageretten"
                 }
 
                 it("viser klagerett på amo tiltak med løpende oppstart") {
-                    val doc = renderHovedvedtak(baseDto(Tiltakskode.GRUPPE_ARBEIDSMARKEDSOPPLAERING))
+                    val doc = renderHovedvedtak(hovedvedtak(Tiltakskode.GRUPPE_ARBEIDSMARKEDSOPPLAERING))
                     doc.text() shouldContain "Du har rett til å klage"
                     doc.text() shouldNotContain "Unntak fra klageretten"
                 }
@@ -121,50 +122,5 @@ class HovedvedtakIndividuellOppfolgingTest :
     }) {
     companion object {
         private fun renderHovedvedtak(payload: HovedvedtakPdfDto): Document = render("hovedvedtak-individuell-oppfolging", payload)
-
-        private fun baseDeltaker(
-            innholdPdfDto: InnholdPdfDto? = null,
-            bakgrunnsinfo: String = "Bakgrunnsinfo",
-            deltakelsesmengde: String = "deltakelsesmengde",
-        ) = HovedvedtakPdfDto.DeltakerDto(
-            fornavn = "Ola",
-            mellomnavn = null,
-            etternavn = "Nordmann",
-            personident = "12345678910",
-            innhold = innholdPdfDto,
-            bakgrunnsinformasjon = bakgrunnsinfo,
-            deltakelsesmengdeTekst = deltakelsesmengde,
-            adresseDelesMedArrangor = false,
-        )
-
-        private fun baseDeltakerliste(tiltakskode: Tiltakskode = Tiltakskode.GRUPPE_ARBEIDSMARKEDSOPPLAERING) =
-            HovedvedtakPdfDto.DeltakerlisteDto(
-                navn = "Tiltaksliste",
-                ledetekst = "Dette er ledeteksten",
-                arrangor = HovedvedtakPdfDto.ArrangorDto("Arrangør AS"),
-                forskriftskapittel = 42,
-                tiltakskode = tiltakskode,
-                oppmoteSted = "Her og der",
-            )
-
-        private fun baseAvsender() =
-            HovedvedtakPdfDto.AvsenderDto(
-                navn = "Nav Saksbehandler",
-                enhet = "Nav Oslo",
-            )
-
-        private fun baseDto(
-            tiltakskode: Tiltakskode,
-            innholdPdfDto: InnholdPdfDto? = null,
-            deltaker: HovedvedtakPdfDto.DeltakerDto = baseDeltaker(innholdPdfDto),
-        ) = HovedvedtakPdfDto(
-            deltaker = deltaker,
-            deltakerliste = baseDeltakerliste(tiltakskode),
-            avsender = baseAvsender(),
-            vedtaksdato = fixedDate,
-            sidetittel = "sidetittel: " + tiltakskode.name,
-            ingressnavn = "Arbeidsforberedende trening",
-            opprettetDato = fixedDate.minusMonths(1),
-        )
     }
 }
