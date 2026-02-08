@@ -4,7 +4,7 @@
         "mellomnavn": null,
         "etternavn": "Navnersen",
         "innhold": {
-            "fritekstBeskrivelse": "Ola har behov for dette og dette",
+            "fritekstBeskrivelse": "",
             "valgteInnholdselementer": ["Arbeidspraksis",
                 "Hjelp til å tilpasse arbeidsoppgaver og arbeidsplassen",
                 "Karriereveiledning",
@@ -31,8 +31,8 @@
         "navn": "Veileder Veiledersen",
         "enhet": "Nav Fyrstikkaleen"
     },
-    "sidetittel": "Varig tilrettelagt arbeid hos Muligheter AS",
-    "ingressnavn": "Varig tilrettelagt arbeid hos Muligheter AS",
+    "sidetittel": "Arbeidsforberedende trening hos Muligheter AS",
+    "ingressnavn": "Arbeidsforberedende trening hos Muligheter AS",
     "opprettetDato": "2024-04-30",
     "vedtaksdato": "2024-04-30",
     "begrunnelseFraNav": "Det er riktig å delta på dette tiltaket likevel"
