@@ -13,7 +13,8 @@
       "navn": "Muligheter AS"
     },
     "forskriftskapittel": 13,
-    "klagerett": false,
+    "harKlagerett": true,
+    "pameldingstype": "DIREKTE_VEDTAK",
     "oppstart": "FELLES"
   },
   "endringer": [

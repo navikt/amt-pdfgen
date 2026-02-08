@@ -8,6 +8,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
+import no.nav.amt.lib.models.deltakerliste.GjennomforingPameldingType
 import no.nav.amt.lib.models.hendelse.HendelseDeltaker
 import no.nav.amt.lib.models.journalforing.pdf.EndringDto
 import no.nav.amt.lib.models.journalforing.pdf.EndringsvedtakPdfDto
@@ -50,17 +51,17 @@ class EndringsvedtakBddTest :
         Given("oppstartstype") {
             forAll(
                 row(
-                    HendelseDeltaker.Deltakerliste.Oppstartstype.LOPENDE,
+                    GjennomforingPameldingType.DIREKTE_VEDTAK,
                     "Du ble meldt på arbeidsmarkedstiltaket",
                 ),
                 row(
-                    HendelseDeltaker.Deltakerliste.Oppstartstype.FELLES,
+                    GjennomforingPameldingType.TRENGER_GODKJENNING,
                     "Du ble søkt inn på arbeidsmarkedstiltaket",
                 ),
-            ) { oppstart, forventetTekst ->
+            ) { pameldingstype, forventetTekst ->
 
-                When("oppstart er $oppstart") {
-                    val doc = renderEndringsvedtak(baseDto(oppstart = oppstart))
+                When("pameldingstype er $pameldingstype") {
+                    val doc = renderEndringsvedtak(baseDto(pameldingstype = pameldingstype))
 
                     Then("skal korrekt ingress vises") {
                         doc.text() shouldContain forventetTekst
@@ -288,6 +289,7 @@ class EndringsvedtakBddTest :
 
         private fun baseDeltakerliste(
             oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype?,
+            pameldingstype: GjennomforingPameldingType,
             klagerett: Boolean,
         ) = EndringsvedtakPdfDto.DeltakerlisteDto(
             navn = "Tiltaksliste",
@@ -296,6 +298,8 @@ class EndringsvedtakBddTest :
             forskriftskapittel = 42,
             oppstart = oppstart,
             klagerett = klagerett,
+            harKlagerett = klagerett,
+            pameldingstype = pameldingstype
         )
 
         private fun baseAvsender() =
@@ -307,10 +311,11 @@ class EndringsvedtakBddTest :
         private fun baseDto(
             endringer: List<EndringDto> = listOf(defaultEndring()),
             oppstart: HendelseDeltaker.Deltakerliste.Oppstartstype? = HendelseDeltaker.Deltakerliste.Oppstartstype.LOPENDE,
+            pameldingstype: GjennomforingPameldingType = GjennomforingPameldingType.DIREKTE_VEDTAK,
             klagerett: Boolean = true,
         ) = EndringsvedtakPdfDto(
             deltaker = baseDeltaker(),
-            deltakerliste = baseDeltakerliste(oppstart, klagerett),
+            deltakerliste = baseDeltakerliste(oppstart, pameldingstype, klagerett),
             endringer = endringer,
             avsender = baseAvsender(),
             vedtaksdato = fixedDate,
