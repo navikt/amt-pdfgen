@@ -16,7 +16,7 @@
     <div id="footer">
         <span class="sidetall">Side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    {{> amt/sections/header}}
+    {{> sections/header}}
     <main>
         <h1>Endring: {{this.sidetittel}}</h1>
         {{#eq deltakerliste.pameldingstype "DIREKTE_VEDTAK"}}
@@ -26,16 +26,16 @@
             <p>Du ble søkt inn på arbeidsmarkedstiltaket: {{this.ingressnavn}} den {{iso_to_long_date this.deltaker.opprettetDato}}, og deltakelsen er nå endret.</p>
         {{/eq}}
         {{#each endringer}}
-            {{> amt/sections/endring/endring-listeelement}}
+            {{> sections/endring/endring-listeelement}}
         {{/each}}
 
-        {{> amt/sections/dette-er-et-vedtak}}
+        {{> sections/dette-er-et-vedtak}}
 
-        {{> amt/sections/klagerett}}
+        {{> sections/klagerett}}
 
-        {{> amt/sections/sporsmal}}
+        {{> sections/sporsmal}}
 
-        {{> amt/sections/avsender}}
+        {{> sections/avsender}}
     </main>
 </body>
 </html>

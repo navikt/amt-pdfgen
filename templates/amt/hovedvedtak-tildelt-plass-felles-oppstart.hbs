@@ -16,7 +16,7 @@
     <div id="footer">
         <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
-    {{> amt/sections/header}}
+    {{> sections/header}}
     <main>
         <section>
             <h1>{{this.deltakerliste.tittelNavn}}</h1>
@@ -29,22 +29,22 @@
         </section>
         <section>
             <h2>Om kurset</h2>
-            {{> amt/sections/kurs-oppstartsdato }}
+            {{> sections/kurs-oppstartsdato }}
 
-            {{> amt/sections/oppmote-sted }}
+            {{> sections/oppmote-sted }}
         </section>
 
-        {{> amt/sections/innhold}}
+        {{> sections/innhold}}
 
-        {{> amt/sections/dette-er-et-vedtak}}
+        {{> sections/dette-er-et-vedtak}}
 
-        {{> amt/sections/klagerett}}
+        {{> sections/klagerett}}
 
-        {{> amt/sections/dette-deles-med-arrangor}}
+        {{> sections/dette-deles-med-arrangor}}
 
-        {{> amt/sections/sporsmal}}
+        {{> sections/sporsmal}}
 
-        {{> amt/sections/avsender}}
+        {{> sections/avsender}}
     </main>
 </body>
 </html>

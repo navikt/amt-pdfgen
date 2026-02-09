@@ -17,7 +17,7 @@
         <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
     </div>
 
-    {{> amt/sections/header}}
+    {{> sections/header}}
 
     <main>
 
@@ -26,7 +26,7 @@
             <p>Du er søkt inn på arbeidsmarkedstiltaket: {{this.ingressnavn}}.</p>
         </section>
 
-        {{> amt/sections/innhold}}
+        {{> sections/innhold}}
 
         <section>
             <h2>Om kurset</h2>
@@ -50,17 +50,17 @@
             {{/not_eq}}
 
             {{#eq deltakerliste.oppstartstype "FELLES"}}
-                {{> amt/sections/kurs-oppstartsdato }}
+                {{> sections/kurs-oppstartsdato }}
             {{/eq}}
 
-            {{> amt/sections/oppmote-sted }}
+            {{> sections/oppmote-sted }}
         </section>
 
-        {{> amt/sections/dette-deles-med-arrangor}}
+        {{> sections/dette-deles-med-arrangor}}
 
-        {{> amt/sections/sporsmal}}
+        {{> sections/sporsmal}}
 
-        {{> amt/sections/avsender}}
+        {{> sections/avsender}}
     </main>
 </body>
 </html>

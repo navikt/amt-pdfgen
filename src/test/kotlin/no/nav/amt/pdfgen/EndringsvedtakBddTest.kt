@@ -9,24 +9,42 @@ import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
 import no.nav.amt.lib.models.deltakerliste.GjennomforingPameldingType
-import no.nav.amt.lib.models.hendelse.HendelseDeltaker
 import no.nav.amt.lib.models.journalforing.pdf.EndringDto
 import no.nav.amt.lib.models.journalforing.pdf.EndringsvedtakPdfDto
 import no.nav.amt.lib.models.journalforing.pdf.ForslagDto
-import no.nav.amt.pdfgen.TestUtils.assertSectionText
-import no.nav.amt.pdfgen.TestUtils.fixedDate
-import no.nav.amt.pdfgen.TestUtils.render
-import no.nav.amt.pdfgen.TestUtils.sectionText
-import no.nav.amt.pdfgen.TestUtils.toNorwegianShortDate
+import no.nav.amt.pdfgen.util.AssertUtils.assertSectionText
+import no.nav.amt.pdfgen.util.RenderUtils.fixedDate
+import no.nav.amt.pdfgen.util.RenderUtils.render
+import no.nav.amt.pdfgen.util.RenderUtils.renderSection
+import no.nav.amt.pdfgen.util.RenderUtils.sectionText
+import no.nav.amt.pdfgen.util.RenderUtils.toNorwegianShortDate
 import org.jsoup.nodes.Document
 
 class EndringsvedtakBddTest :
     BehaviorSpec({
 
-        Given("endringsvedtak template") {
+        Given("et endringsvedtak og sub-template dette-er-et-vedtak") {
+            When("vedtaket rendres") {
+                val endringsvedtak = endringsvedtak()
+                val doc = renderSection("dette-er-et-vedtak", endringsvedtak)
 
+                Then("vises tittel for vedtaket") {
+                    val heading = doc.selectFirst("h2").shouldNotBeNull()
+                    heading.text() shouldBe "Dette er et vedtak"
+                }
+
+                And("vises forklarende tekst for vedtaket") {
+                    val body = doc.selectFirst("p").shouldNotBeNull()
+                    body.text() shouldBe
+                            "Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak " +
+                            "kapittel ${endringsvedtak.deltakerliste.forskriftskapittel}."
+                }
+            }
+        }
+
+        Given("endringsvedtak template") {
             When("rendering document with minimal payload") {
-                val doc = renderEndringsvedtak(baseDto())
+                val doc = renderEndringsvedtak(endringsvedtak())
 
                 Then("skal alle faste seksjoner finnes i dokumentet") {
                     doc.selectFirst("header") shouldNotBe null
@@ -61,7 +79,7 @@ class EndringsvedtakBddTest :
             ) { pameldingstype, forventetTekst ->
 
                 When("pameldingstype er $pameldingstype") {
-                    val doc = renderEndringsvedtak(baseDto(pameldingstype = pameldingstype))
+                    val doc = renderEndringsvedtak(endringsvedtak(pameldingstype = pameldingstype))
 
                     Then("skal korrekt ingress vises") {
                         doc.text() shouldContain forventetTekst
@@ -77,7 +95,7 @@ class EndringsvedtakBddTest :
             ) { klagerett ->
 
                 When("klagerett er $klagerett") {
-                    val doc = renderEndringsvedtak(baseDto(klagerett = klagerett))
+                    val doc = renderEndringsvedtak(endringsvedtak(klagerett = klagerett))
 
                     Then("skal klageseksjon være ${if (klagerett) "synlig" else "skjult"}") {
                         val finnes =
@@ -113,7 +131,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -153,7 +171,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -198,7 +216,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -245,7 +263,7 @@ class EndringsvedtakBddTest :
             ) { endring ->
 
                 When("dokumentet rendres med endring: $endring") {
-                    val doc = renderEndringsvedtak(baseDto(endringer = listOf(endring)))
+                    val doc = renderEndringsvedtak(endringsvedtak(endringer = listOf(endring)))
 
                     Then("skal vise endring korrekt") {
                         doc.sectionText() shouldContain endring.tittel
@@ -296,7 +314,7 @@ class EndringsvedtakBddTest :
             arrangor = EndringsvedtakPdfDto.ArrangorDto("Arrangør AS"),
             forskriftskapittel = 42,
             harKlagerett = klagerett,
-            pameldingstype = pameldingstype
+            pameldingstype = pameldingstype,
         )
 
         private fun baseAvsender() =
@@ -305,7 +323,7 @@ class EndringsvedtakBddTest :
                 enhet = "Nav Oslo",
             )
 
-        private fun baseDto(
+        private fun endringsvedtak(
             endringer: List<EndringDto> = listOf(defaultEndring()),
             pameldingstype: GjennomforingPameldingType = GjennomforingPameldingType.DIREKTE_VEDTAK,
             klagerett: Boolean = true,
