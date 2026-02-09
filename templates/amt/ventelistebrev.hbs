@@ -24,29 +24,18 @@
            <h2>Du er satt på venteliste</h2>
            <p>
                Hvis det blir en ledig plass, vil Nav eller arrangøren ta kontakt med deg for å avtale når du skal begynne.
+           </p>
 
                 {{#eq this.deltakerliste.oppstartstype "FELLES"}}
-                    {{#if this.deltakerliste.startdato}}
-                        <br />
-                        <br />
-                        Ordinær oppstart er {{iso_to_long_date this.deltakerliste.startdato}}, men ledige plasser kan dukke opp etter dette. Ved ledig plass ber vi om at du er tilgjengelig på kort varsel.
-                        {{#if this.deltakerliste.sluttdato}}
-                            Kurset slutter {{iso_to_long_date this.deltakerliste.sluttdato}}.
-                        {{/if}}
-                    {{/if}}
+                    {{> amt/sections/kurs-oppstartsdato }}
+                    <br />
+                    <p>Ledige plasser kan dukke opp etter den vanlige oppstartsdatoen.  Hvis det blir en ledig plass ber vi om at du er tilgjengelig på kort varsel.</p>
                 {{/eq}}
 
+               {{> amt/sections/oppmote-sted }}
 
-               {{#if this.deltakerliste.oppmoteSted}}
-                   <br />
-                   <br />
-                   Hvis du får plass skal du møte opp her: {{this.deltakerliste.oppmoteSted}}.
-               {{/if}}
+               <p>Hvis du ikke får plass, vil søknaden avslås.</p>
 
-               <br />
-               <br />
-               Hvis du ikke får plass, vil søknaden avslås.
-           </p>
         </section>
         {{> amt/sections/sporsmal}}
 
