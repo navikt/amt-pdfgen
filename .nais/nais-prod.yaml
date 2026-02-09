@@ -19,16 +19,16 @@ spec:
     initialDelay: 30
   replicas:
     min: 2
-    max: 3
+    max: 5
     scalingStrategy:
       cpu:
-        thresholdPercentage: 400
+        thresholdPercentage: 200
   resources:
     requests:
       cpu: 10m
-      memory: 256Mi
+      memory: 512Mi
     limits:
-      memory: 1024Mi
+      memory: 1Gi
   accessPolicy:
     inbound:
       rules:
