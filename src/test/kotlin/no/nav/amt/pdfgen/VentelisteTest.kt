@@ -21,7 +21,7 @@ class VentelisteTest :
                     oppstartstype = Oppstartstype.FELLES
                 ))
                 doc.text() shouldContain "Du er satt på venteliste"
-                doc.text() shouldContain "Ordinær oppstart er"
+                doc.text() shouldContain "Kurset starter"
 
             }
             it("LOPENDE oppstart - Skal vise deltakerliste data") {
