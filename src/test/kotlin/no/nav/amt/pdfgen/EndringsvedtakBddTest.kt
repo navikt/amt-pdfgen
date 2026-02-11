@@ -36,8 +36,8 @@ class EndringsvedtakBddTest :
                 And("vises forklarende tekst for vedtaket") {
                     val body = doc.selectFirst("p").shouldNotBeNull()
                     body.text() shouldBe
-                            "Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak " +
-                            "kapittel ${endringsvedtak.deltakerliste.forskriftskapittel}."
+                        "Dette er et vedtak etter arbeidsmarkedsloven § 12 og forskrift om arbeidsmarkedstiltak " +
+                        "kapittel ${endringsvedtak.deltakerliste.forskriftskapittel}."
                 }
             }
         }
