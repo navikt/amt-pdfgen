@@ -1,5 +1,5 @@
 # Dockerfile
-FROM ghcr.io/navikt/pdfgen:2.0.111
+FROM ghcr.io/navikt/pdfgen:2.0.112
 
 ENV TZ="Europe/Oslo"
 COPY templates /app/templates
