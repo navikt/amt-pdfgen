@@ -3,7 +3,11 @@
         <h2>Dette er innholdet</h2>
         {{#if deltaker.innhold.ledetekst}}
             <p id="ledetekst">{{deltaker.innhold.ledetekst}}</p>
-            <br />
+        {{/if}}
+
+        {{! Viser linjeskift hvis begge feltene finnes }}
+        {{#if deltaker.innhold.ledetekst}}
+            {{#if deltaker.innhold.fritekstBeskrivelse}}<br />{{/if}}
         {{/if}}
 
         {{#if deltaker.innhold.fritekstBeskrivelse}}
