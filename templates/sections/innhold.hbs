@@ -5,8 +5,12 @@
             <p id="ledetekst">{{deltaker.innhold.ledetekst}}</p>
         {{/if}}
 
+        {{! Viser linjeskift hvis begge feltene finnes }}
+        {{#if deltaker.innhold.ledetekst}}
+            {{#if deltaker.innhold.fritekstBeskrivelse}}<br />{{/if}}
+        {{/if}}
+
         {{#if deltaker.innhold.fritekstBeskrivelse}}
-            <br />
             <p class="fritekst" id="fritekst">{{deltaker.innhold.fritekstBeskrivelse}}</p>
         {{/if}}
 
